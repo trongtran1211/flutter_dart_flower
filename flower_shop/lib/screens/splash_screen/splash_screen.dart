@@ -20,7 +20,7 @@ class _SplashScreenState extends State<SplashScreen> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
     {
-      "text": "Bệnh Viện Quốc Tế TPHCM ",
+      "text": "SHOP HOA TƯƠI VÀ PHỤ KIỆN",
       "image": "assets/images/splash_1.png"
     },
     {
