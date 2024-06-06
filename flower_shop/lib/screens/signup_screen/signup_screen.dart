@@ -16,7 +16,7 @@ class SignUpScreen extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text(
-          "ĐĂNG KÍ",
+          "ĐĂNG KÝ",
           style: TextStyle(
             fontWeight: FontWeight.bold,
             color: kPrimaryColor

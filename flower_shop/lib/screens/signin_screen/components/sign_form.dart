@@ -167,7 +167,10 @@ class _SignFormState extends State<SignForm> {
                 //     context, ForgotPasswordScreen.routeName),
                 child: const Text(
                   "Forgot Password?",
-                  style: TextStyle(),
+                  style: TextStyle(
+                    color: kSecondaryColor,
+                    fontWeight: FontWeight.bold
+                  ),
                 ),
               )
             ],

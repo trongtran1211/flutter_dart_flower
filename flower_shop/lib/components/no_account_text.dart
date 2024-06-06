@@ -22,7 +22,7 @@ class NoAccountText extends StatelessWidget {
           onTap: () => Navigator.pushNamed(context, SignUpScreen.routeName),
           child: const Text(
             "Sign Up",
-            style: TextStyle(fontSize: 16, color: kPrimaryColor, fontWeight: FontWeight.bold),
+            style: TextStyle(fontSize: 16, color: kSecondaryColor, fontWeight: FontWeight.bold),
           ),
         ),
       ],
