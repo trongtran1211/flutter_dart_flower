@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/screens/home_screen/home_screen.dart';
+import 'package:health_care/mainpage.dart';
+
 import 'package:health_care/screens/signin_screen/signin_screen.dart';
 import 'package:health_care/screens/signup_screen/signup_screen.dart';
 
@@ -136,7 +137,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         ),
                         const SizedBox(height: 16),
                         GestureDetector(
-                          onTap: () => Navigator.pushNamed(context, HomeScreen.routeName),
+                          onTap: () => Navigator.pushNamed(context, Mainpage.routeName),
                           child: const Text(
                             "No thanks! Later",
                             style: TextStyle(fontSize: 16, color: kPrimaryLightColor, fontWeight: FontWeight.bold),

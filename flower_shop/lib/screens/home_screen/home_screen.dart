@@ -14,17 +14,18 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          "TRANG CHỦ",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: kPrimaryColor
-          ),
-        ),
-        backgroundColor: Colors.white,
+      // appBar: AppBar(
+      //   title: const Text(
+      //     "TRANG CHỦ",
+      //     style: TextStyle(
+      //       fontWeight: FontWeight.bold,
+      //       color: kPrimaryColor
+      //     ),
+      //   ),
+      //   backgroundColor: Colors.white,
         
-      ),
+      // ),
+
       body: const SafeArea(
         child: SingleChildScrollView(
           padding: EdgeInsets.symmetric(vertical: 16),
