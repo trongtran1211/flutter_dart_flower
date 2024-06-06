@@ -16,7 +16,7 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Expanded(child: const SearchField()),
+          // const Expanded(child: const SearchField()),
           const SizedBox(width: 16),
           // IconBtnWithCounter(
           //   // svgSrc: "assets/icons/Cart Icon.svg",

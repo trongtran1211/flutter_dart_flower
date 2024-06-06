@@ -3,7 +3,6 @@ import 'package:flutter/widgets.dart';
 import 'package:health_care/constants.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'package:health_care/screens/signup_screen/signup_screen.dart';
-import 'package:health_care/screens/splash_screen/components/splash_content.dart';
 import 'package:health_care/screens/splash_screen/splash_screen.dart';
 
 class Mainpage extends StatefulWidget {
@@ -46,7 +45,8 @@ class _MainpageState extends State<Mainpage> {
     return Scaffold(
           // Main content
               appBar: AppBar(
-                title: const Text("My App Navigator"),
+                title: const Text(""),
+                backgroundColor: Colors.white,
               ),
               drawer: Drawer(
                 child: ListView(
@@ -54,7 +54,7 @@ class _MainpageState extends State<Mainpage> {
                   children: [
                     DrawerHeader(
                       decoration: const BoxDecoration(
-                        color: Colors.blue,
+                        color: kSecondaryColor,
                       ),
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -143,6 +143,7 @@ class _MainpageState extends State<Mainpage> {
                 selectedItemColor: kSecondaryColor,
                 unselectedItemColor: Colors.grey,
                 onTap: _onItemTapped,
+                backgroundColor: Colors.white,
               ),
               body: _loadWidget(_selectedIndex),
           
