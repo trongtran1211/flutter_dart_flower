@@ -65,17 +65,16 @@ class _SignFormState extends State<SignForm> {
               }
               return null;
             },
-            
             decoration: InputDecoration(
               labelText: 'Email',
               hintText: 'Enter your email',
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(color: Colors.grey),
-                
               ),
               enabledBorder: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
@@ -89,7 +88,7 @@ class _SignFormState extends State<SignForm> {
               ),
               filled: true,
               fillColor: const Color.fromARGB(255, 255, 255, 255),
-              
+
               // hintText: "Email",
               // // If  you are using latest version of flutter then lable text and hint text shown like this
               // // if you r using flutter less then 1.20.* then maybe this is not working properly
@@ -119,10 +118,11 @@ class _SignFormState extends State<SignForm> {
               }
               return null;
             },
-            decoration:  InputDecoration(
+            decoration: InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(color: Colors.grey),
@@ -170,10 +170,11 @@ class _SignFormState extends State<SignForm> {
               }
               return null;
             },
-            decoration:  InputDecoration(
+            decoration: InputDecoration(
               floatingLabelBehavior: FloatingLabelBehavior.always,
-              
-              contentPadding: const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
+
+              contentPadding:
+                  const EdgeInsets.symmetric(horizontal: 20, vertical: 16),
               border: OutlineInputBorder(
                 borderRadius: BorderRadius.circular(8),
                 borderSide: BorderSide(color: Colors.grey),
@@ -234,22 +235,22 @@ class _SignFormState extends State<SignForm> {
               }
             },
             style: ElevatedButton.styleFrom(
-                backgroundColor: kPrimaryColor,
-                padding: EdgeInsets.symmetric(horizontal: 155, vertical: 12),
-                shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
-                  side: BorderSide(color: kPrimaryColor, width: 1),
-                            // Set border radius here
+              backgroundColor: kPrimaryColor,
+              padding: EdgeInsets.symmetric(vertical: 12),
+              minimumSize:
+                  Size(double.infinity, 50), // Set kích thước tối thiểu
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(8),
+                // Set border radius here
               ),
             ),
             child: const Text(
               "Sign Up",
               style: TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-                color: Colors.white
-              ),
-              ),
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
+            ),
           ),
         ],
       ),
