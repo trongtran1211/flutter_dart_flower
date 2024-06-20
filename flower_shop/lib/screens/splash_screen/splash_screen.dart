@@ -43,8 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
-                      mainAxisAlignment:
-                          MainAxisAlignment.end, // Đẩy các nút xuống dưới
+                      mainAxisAlignment: MainAxisAlignment.end, // Đẩy các nút xuống dưới
                       children: <Widget>[
                         //nút đăng ký
                         ElevatedButton(
@@ -94,11 +93,42 @@ class _SplashScreenState extends State<SplashScreen> {
                           ),
                         ),
                         const SizedBox(height: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.facebook, color: Colors.blue),
+                              iconSize: 40,
+                              onPressed: () {
+                                // Handle Facebook login
+                              },
+                            ),
+                            const SizedBox(width: 20),
+                            IconButton(
+                              icon: Icon(Icons.email, color: Colors.red),
+                              iconSize: 40,
+                              onPressed: () {
+                                // Handle Gmail login
+                              },
+                            ),
+                            
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        const Text(
+                          "- hoặc -",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
                         GestureDetector(
                           onTap: () =>
                               Navigator.pushNamed(context, Mainpage.routeName),
                           child: const Text(
-                            "No thanks! Later",
+                            "No thanks. Later",
                             style: TextStyle(
                                 fontSize: 16,
                                 color: kPrimaryLightColor,

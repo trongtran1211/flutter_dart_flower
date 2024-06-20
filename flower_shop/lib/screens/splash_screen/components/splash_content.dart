@@ -18,16 +18,16 @@ class _SplashContentState extends State<SplashContent> {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        const Spacer(),
-        // const Text(
-        //   "HOA TƯƠI",
-        //   style: TextStyle(
-        //     fontSize: 32,
-        //     color: kPrimaryColor,
-        //     fontWeight: FontWeight.bold,
-        //   ),
-        // ),
-        // const Spacer(flex: 1),
+        // const Spacer(),
+        //  const Text(
+        //    "",
+        //    style: TextStyle(
+        //      fontSize: 32,
+        //      color: kPrimaryColor,
+        //      fontWeight: FontWeight.bold,
+        //    ),
+        //  ),
+        const Spacer(flex: 1),
         Image.asset(
           widget.image!,
           height: 400,
