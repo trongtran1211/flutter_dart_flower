@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
-
 import 'package:health_care/screens/signin_screen/signin_screen.dart';
 import 'package:health_care/screens/signup_screen/signup_screen.dart';
-
+import 'package:health_care/screens/splash_screen/components/splash_content.dart';
 import '../../constants.dart';
-// import './components/splash_content.dart';
 
 class SplashScreen extends StatefulWidget {
   static String routeName = "/splash";
@@ -19,136 +17,131 @@ class SplashScreen extends StatefulWidget {
 class _SplashScreenState extends State<SplashScreen> {
   int currentPage = 0;
   List<Map<String, String>> splashData = [
-    {
-      "text": "SHOP HOA TƯƠI VÀ PHỤ KIỆN",
-      "image": "assets/images/splash_1.png"
-    },
-    {
-      "text":
-          "Luôn Luôn Lắng Nghe, Thấu Hiểu",
-      "image": "assets/images/splash_1.png"
-    },
-    {
-      "text": "Uy Tín Chất Lượng Hàng Đầu",
-      "image": "assets/images/splash_1.png"
-    },
+    {"image": "assets/images/splash_screen.png"},
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
         child: Container(
-          width: double.infinity,
-          height: double.infinity,
-          decoration: const BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage('assets/images/splash_screen.jpg'),
-              fit: BoxFit.fill,
-            ),
-          ),
           child: SizedBox(
-            // width: double.infinity,
             child: Column(
               children: <Widget>[
-                // Expanded(
-                //   flex: 3,
-                //   child: PageView.builder(
-                //     onPageChanged: (value) {
-                //       setState(() {
-                //         currentPage = value;
-                //       });
-                //     },
-                //     itemCount: splashData.length,
-                //     itemBuilder: (context, index) => SplashContent(
-                //       image: splashData[index]["image"],
-                //       text: splashData[index]['text'],
-                //     ),
-                //   ),
-                // ),
                 Expanded(
-                  // flex: 2,
+                  child: PageView.builder(
+                    onPageChanged: (value) {
+                      setState(() {
+                        currentPage = value;
+                      });
+                    },
+                    itemCount: splashData.length,
+                    itemBuilder: (context, index) =>
+                        SplashContent(image: splashData[index]["image"]),
+                  ),
+                ),
+                Expanded(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
+                      mainAxisAlignment: MainAxisAlignment.end, // Đẩy các nút xuống dưới
                       children: <Widget>[
-                        // const Spacer(),
-                        // Row(
-                        //   mainAxisAlignment: MainAxisAlignment.center,
-                        //   children: List.generate(
-                        //     splashData.length,
-                        //     (index) => AnimatedContainer(
-                        //       duration: kAnimationDuration,
-                        //       margin: const EdgeInsets.only(right: 5),
-                        //       height: 6,
-                        //       width: currentPage == index ? 20 : 6,
-                        //       decoration: BoxDecoration(
-                        //         color: currentPage == index
-                        //             ? kPrimaryColor
-                        //             : Color.fromARGB(255, 180, 174, 174),
-                        //         borderRadius: BorderRadius.circular(3),
-                        //       ),
-                        //     ),
-                        //   ),
-                        // ),
-                        const SizedBox(height: 330),          
+                        //nút đăng ký
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, SignUpScreen.routeName);
+                            Navigator.pushNamed(
+                                context, SignUpScreen.routeName);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: kPrimaryColor,
-                            padding: EdgeInsets.symmetric(horizontal: 145, vertical: 12),
+                            padding: EdgeInsets.symmetric(vertical: 12),
+                            minimumSize: Size(double.infinity,
+                                50), // Set kích thước tối thiểu
                             shape: RoundedRectangleBorder(
-                              borderRadius: BorderRadius.circular(8), // Set border radius here
+                              borderRadius: BorderRadius.circular(8),
                             ),
                           ),
-                          
                           child: const Text(
                             "Sign Up",
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white
-                            ),
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white),
                           ),
                         ),
                         const SizedBox(height: 16),
                         ElevatedButton(
                           onPressed: () {
-                            Navigator.pushNamed(context, SignInScreen.routeName);
+                            Navigator.pushNamed(
+                                context, SignInScreen.routeName);
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                            padding: EdgeInsets.symmetric(horizontal: 155, vertical: 12),
+                            padding: EdgeInsets.symmetric(vertical: 12),
+                            minimumSize: Size(double.infinity,
+                                50), // Set kích thước tối thiểu
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                               side: BorderSide(color: kPrimaryColor, width: 1),
-                              // Set border radius here
                             ),
                           ),
                           child: const Text(
                             "Login",
                             style: TextStyle(
-                              fontSize: 18,
-                              fontWeight: FontWeight.bold,
-                              color: kPrimaryColor
+                                fontSize: 18,
+                                fontWeight: FontWeight.bold,
+                                color: kPrimaryColor),
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                              icon: Icon(Icons.facebook, color: Colors.blue),
+                              iconSize: 40,
+                              onPressed: () {
+                                // Handle Facebook login
+                              },
                             ),
+                            const SizedBox(width: 20),
+                            IconButton(
+                              icon: Icon(Icons.email, color: Colors.red),
+                              iconSize: 40,
+                              onPressed: () {
+                                // Handle Gmail login
+                              },
+                            ),
+                            
+                          ],
+                        ),
+                        const SizedBox(height: 16),
+                        const Text(
+                          "- hoặc -",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
                           ),
                         ),
                         const SizedBox(height: 16),
                         GestureDetector(
-                          onTap: () => Navigator.pushNamed(context, Mainpage.routeName),
+                          onTap: () =>
+                              Navigator.pushNamed(context, Mainpage.routeName),
                           child: const Text(
-                            "No thanks! Later",
-                            style: TextStyle(fontSize: 16, color: kPrimaryLightColor, fontWeight: FontWeight.bold),
+                            "No thanks. Later",
+                            style: TextStyle(
+                                fontSize: 16,
+                                color: kPrimaryLightColor,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
+                        const SizedBox(height: 30), // Thêm khoảng cách bên dưới
                       ],
                     ),
                   ),
                 ),
               ],
-            ),    
+            ),
           ),
         ),
       ),

@@ -17,14 +17,11 @@ class SignInScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text(
           "ĐĂNG NHẬP",
-          style: TextStyle(
-            fontWeight: FontWeight.bold,
-            color: kPrimaryColor
-          ),
+          style: TextStyle(fontWeight: FontWeight.bold, color: kPrimaryColor),
         ),
         backgroundColor: Colors.white,
       ),
-      body:  SafeArea(
+      body: SafeArea(
         child: SizedBox(
           width: double.infinity,
           child: Padding(
@@ -47,16 +44,14 @@ class SignInScreen extends StatelessWidget {
                   //   textAlign: TextAlign.center,
                   // ),
 
-                  
                   // Add your image here
                   Image.asset(
-                    'assets/images/splash_1.png', // Ensure the path is correct
+                    'assets/images/splash_screen.png', // Ensure the path is correct
                     height: 350,
-                    width: 350,// Adjust height as needed
+                    width: 350, // Adjust height as needed
                   ),
                   const SizedBox(height: 20),
                   const SignForm(),
-                  const SizedBox(height: 20),
                   const SizedBox(height: 20),
                   const NoAccountText(),
                 ],
