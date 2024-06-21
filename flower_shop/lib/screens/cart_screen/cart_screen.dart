@@ -100,6 +100,7 @@ class _CartScreenState extends State<CartScreen> {
                   style: TextStyle(fontSize: 18, color: Colors.white)),
             ),
           ),
+          const SizedBox(height: 40),
         ],
       ),
     );

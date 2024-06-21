@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/constants.dart';
 
 class CartItem {
   final String name;
@@ -45,11 +46,24 @@ class _CartItemWidgetState extends State<CartItemWidget> {
     return Card(
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Padding(
-        padding: const EdgeInsets.all(8.0),
+        padding: const EdgeInsets.all(0),
         child: Row(
           children: [
-            Image.asset(widget.cartItem.img,
-                width: 50, height: 50, fit: BoxFit.cover),
+            Container(
+              decoration: BoxDecoration(
+                color: kcolorminor.withOpacity(
+                    0.1), // Màu nền tím, có thể điều chỉnh theo ý của bạn
+                // Để bo tròn viền
+              ),
+              width: 100,
+              height: 100,
+              child: Image.asset(
+                widget.cartItem.img,
+                width: 100,
+                height: 100,
+                fit: BoxFit.cover,
+              ),
+            ),
             const SizedBox(width: 10),
             Expanded(
               child: Column(
@@ -60,22 +74,22 @@ class _CartItemWidgetState extends State<CartItemWidget> {
                   const SizedBox(height: 5),
                   Text(
                       "\$${(widget.cartItem.price * widget.cartItem.quantity).toStringAsFixed(2)}"),
+                  Row(
+                    children: [
+                      IconButton(
+                        icon: const Icon(Icons.remove_circle_outline),
+                        onPressed: _decreaseQuantity,
+                      ),
+                      Text(widget.cartItem.quantity.toString(),
+                          style: const TextStyle(fontSize: 18)),
+                      IconButton(
+                        icon: const Icon(Icons.add_circle_outline),
+                        onPressed: _increaseQuantity,
+                      ),
+                    ],
+                  ),
                 ],
               ),
-            ),
-            Row(
-              children: [
-                IconButton(
-                  icon: const Icon(Icons.remove_circle_outline),
-                  onPressed: _decreaseQuantity,
-                ),
-                Text(widget.cartItem.quantity.toString(),
-                    style: const TextStyle(fontSize: 18)),
-                IconButton(
-                  icon: const Icon(Icons.add_circle_outline),
-                  onPressed: _increaseQuantity,
-                ),
-              ],
             ),
           ],
         ),
