@@ -1,23 +1,56 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'cart_item.dart';
 
-class CartScreen extends StatelessWidget {
+class CartScreen extends StatefulWidget {
   const CartScreen({super.key});
   static String routeName = "/cart";
+
+  @override
+  _CartScreenState createState() => _CartScreenState();
+}
+
+class _CartScreenState extends State<CartScreen> {
+  final List<CartItem> cartItems = [
+    CartItem(
+        name: "Item 1",
+        price: 50.00,
+        img: 'assets/images/hoahong.png',
+        quantity: 1),
+    CartItem(
+        name: "Item 2",
+        price: 50.00,
+        img: 'assets/images/hoahong.png',
+        quantity: 1),
+    CartItem(
+        name: "Item 3",
+        price: 50.00,
+        img: 'assets/images/hoahong.png',
+        quantity: 1),
+  ];
+
+  void _updateQuantity(CartItem item) {
+    setState(() {
+      // Simply trigger a rebuild with the updated item quantity
+    });
+  }
+
+  double get _totalPrice {
+    return cartItems.fold(0, (sum, item) => sum + (item.price * item.quantity));
+  }
+
   @override
   Widget build(BuildContext context) {
-    // Danh sách các sản phẩm trong giỏ hàng
-    final List<CartItem> cartItems = [
-      CartItem(name: "Sản phẩm 1", price: 29.99),
-      CartItem(name: "Sản phẩm 2", price: 19.99),
-      CartItem(name: "Sản phẩm 3", price: 49.99),
-    ];
-    // Tính tổng giá tiền của các sản phẩm trong giỏ hàng
-    double totalPrice = cartItems.fold(0, (sum, item) => sum + item.price);
-
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Giỏ Hàng"),
+        title: const Text("Shopping Cart"),
+        // Thêm nút back trên AppBar và điều hướng về trang home
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushNamed(HomeScreen.routeName);
+          },
+        ),
       ),
       body: Column(
         children: [
@@ -26,7 +59,10 @@ class CartScreen extends StatelessWidget {
             child: ListView.builder(
               itemCount: cartItems.length,
               itemBuilder: (context, index) {
-                return CartItemWidget(cartItem: cartItems[index]);
+                return CartItemWidget(
+                  cartItem: cartItems[index],
+                  onQuantityChanged: _updateQuantity,
+                );
               },
             ),
           ),
@@ -37,44 +73,33 @@ class CartScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Tổng cộng:',
+                  'Total:',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '\$${totalPrice.toStringAsFixed(2)}',
+                  '\$${_totalPrice.toStringAsFixed(2)}',
                   style: const TextStyle(
                       fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],
             ),
           ),
-        ],
-      ),
-    );
-  }
-}
-
-class CartItemWidget extends StatelessWidget {
-  final CartItem cartItem;
-
-  const CartItemWidget({super.key, required this.cartItem});
-
-  @override
-  Widget build(BuildContext context) {
-    return Card(
-      margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
-      child: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: ListTile(
-          title: Text(cartItem.name, style: const TextStyle(fontSize: 18)),
-          subtitle: Text("\$${cartItem.price.toStringAsFixed(2)}"),
-          trailing: IconButton(
-            icon: const Icon(Icons.remove_circle_outline),
-            onPressed: () {
-              // Xử lý việc xoá sản phẩm khỏi giỏ hàng
-            },
+          // Nút Check Out
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: ElevatedButton(
+              onPressed: () {
+                // Xử lý khi nhấn nút Check Out
+              },
+              style: ElevatedButton.styleFrom(
+                backgroundColor: Colors.black,
+                minimumSize: const Size.fromHeight(50), // Đặt chiều cao của nút
+              ),
+              child: const Text('Check Out',
+                  style: TextStyle(fontSize: 18, color: Colors.white)),
+            ),
           ),
-        ),
+        ],
       ),
     );
   }
