@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/mainpage.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'cart_item.dart';
 
@@ -48,7 +49,7 @@ class _CartScreenState extends State<CartScreen> {
         leading: IconButton(
           icon: const Icon(Icons.arrow_back),
           onPressed: () {
-            Navigator.of(context).pushNamed(HomeScreen.routeName);
+            Navigator.of(context).pushNamed(Mainpage.routeName);
           },
         ),
       ),
