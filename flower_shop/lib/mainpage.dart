@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:health_care/constants.dart';
+import 'package:health_care/screens/cart_screen/cart_screen.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'package:health_care/screens/signup_screen/signup_screen.dart';
 import 'package:health_care/screens/splash_screen/splash_screen.dart';
@@ -26,7 +27,7 @@ class _MainpageState extends State<Mainpage> {
     // var nameWidgets = "None";
     switch (index) {
       case 0:
-      // nameWidgets = "Info";
+        return const CartScreen();
 
       case 1:
         // nameWidgets = "Contact";
