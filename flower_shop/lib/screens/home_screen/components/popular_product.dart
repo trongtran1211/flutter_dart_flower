@@ -8,6 +8,8 @@ import 'section_title.dart';
 class PopularProducts extends StatelessWidget {
   const PopularProducts({super.key});
 
+  
+
   @override
   Widget build(BuildContext context) {
     return Column(

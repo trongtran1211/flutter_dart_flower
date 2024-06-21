@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/constants.dart';
+import 'package:health_care/screens/home_screen/components/search_field.dart';
 
 import 'components/categories.dart';
 import './components/discount_banner.dart';
@@ -20,9 +21,17 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               HomeHeader(),
+              SizedBox(height: 20,),
+              SearchField(),
               DiscountBanner(),
               Categories(),
               //SpecialOffers(),
+
+              PopularProducts(),
+              SizedBox(height: 20),
+              PopularProducts(),
+              SizedBox(height: 20),
+              PopularProducts(),
               SizedBox(height: 20),
               PopularProducts(),
               SizedBox(height: 20),

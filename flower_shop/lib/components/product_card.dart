@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
@@ -19,6 +21,14 @@ class ProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    // Define a list of colors
+    final List<Color> colors = [
+      color1,color2, colot3, color4
+
+    ];
+
+    // Select a random color from the list
+    final Color randomColor = colors[Random().nextInt(colors.length)];
     return SizedBox(
       width: width,
       child: GestureDetector(
@@ -31,7 +41,7 @@ class ProductCard extends StatelessWidget {
               child: Container(
                 padding: const EdgeInsets.all(20),
                 decoration: BoxDecoration(
-                  color: kSecondaryColor.withOpacity(0.1),
+                  color: randomColor.withOpacity(0.1),
                   borderRadius: BorderRadius.circular(12),
                 ),
                 child: Image.asset(product.images[0]),
@@ -68,7 +78,7 @@ class ProductCard extends StatelessWidget {
                       shape: BoxShape.circle,
                     ),
                     child: SvgPicture.asset(
-                      "assets/icons/Heart Icon_2.svg",
+                      "assets/icons/heart.svg",
                       colorFilter: ColorFilter.mode(
                           product.isFavourite
                               ? const Color(0xFFFF4848)

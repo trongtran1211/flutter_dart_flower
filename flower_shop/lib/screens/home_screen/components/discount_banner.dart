@@ -30,7 +30,7 @@ class DiscountBanner extends StatelessWidget {
               style: TextStyle(
                 fontSize: 24,
                 fontWeight: FontWeight.bold,
-                color: kcolorminor,
+                color: kSecondaryColor,
                 
                 
               ),

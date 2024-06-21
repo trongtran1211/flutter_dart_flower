@@ -77,8 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 255, 255, 255),
                             padding: EdgeInsets.symmetric(vertical: 12),
-                            minimumSize: Size(double.infinity,
-                                50), // Set kích thước tối thiểu
+                            minimumSize: Size(double.infinity, 50), // Set kích thước tối thiểu
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                               side: BorderSide(color: kPrimaryColor, width: 1),

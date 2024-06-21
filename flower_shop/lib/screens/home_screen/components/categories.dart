@@ -7,11 +7,11 @@ class Categories extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/Flash Icon.svg", "text": "Flower"},
-      {"icon": "assets/icons/Bill Icon.svg", "text": "Gift"},
-      {"icon": "assets/icons/Game Icon.svg", "text": "Special"},
-      {"icon": "assets/icons/Gift Icon.svg", "text": "Daily Gift"},
-      {"icon": "assets/icons/Discover.svg", "text": "Classify"},
+      {"icon": "assets/icons/flower.svg", "text": "Flower"},
+      {"icon": "assets/icons/gift.svg", "text": "Gift"},
+      {"icon": "assets/icons/special.svg", "text": "Special"},
+      {"icon": "assets/icons/dailygift.svg", "text": "Daily Gift"},
+      {"icon": "assets/icons/classify.svg", "text": "Classify"},
     ];
     return Padding(
       padding: const EdgeInsets.all(20),
@@ -49,12 +49,21 @@ class CategoryCard extends StatelessWidget {
       child: Column(
         children: [
           Container(
-            padding: const EdgeInsets.all(16),
+            padding: const EdgeInsets.all(14),
             height: 56,
             width: 56,
             decoration: BoxDecoration(
-              color: const Color(0xFFFFECDF),
+              color: Colors.white,
               borderRadius: BorderRadius.circular(10),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black.withOpacity(0.2), // Shadow color with opacity
+                  spreadRadius: 2, // Spread radius
+                  blurRadius: 5, // Blur radius
+                  offset: Offset(0, 3), // Offset in x and y direction
+                ),
+              ],
+            
             ),
             child: SvgPicture.asset(icon),
           ),

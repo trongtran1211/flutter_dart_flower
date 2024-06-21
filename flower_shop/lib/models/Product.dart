@@ -65,7 +65,7 @@ List<Product> demoProducts = [
   Product(
     id: 3,
     images: [
-      "assets/images/glap.png",
+      "assets/images/hoahong.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -138,7 +138,7 @@ List<Product> demoProducts = [
   Product(
     id: 3,
     images: [
-      "assets/images/glap.png",
+      "assets/images/hoahong.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -156,7 +156,7 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/images/wireless headset.png",
+      "assets/images/hoahong.png",
     ],
     colors: [
       const Color(0xFFF6625E),
@@ -164,7 +164,7 @@ List<Product> demoProducts = [
       const Color(0xFFDECB9C),
       Colors.white,
     ],
-    title: "Logitech Head",
+    title: "Hoa hồng",
     price: 20.20,
     description: description,
     rating: 4.1,
@@ -173,4 +173,4 @@ List<Product> demoProducts = [
 ];
 
 const String description =
-    "Wireless Controller for PS4™ gives you what you want in your gaming from over precision control your games to sharing …";
+    "";

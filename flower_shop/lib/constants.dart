@@ -3,6 +3,12 @@ import 'package:flutter/material.dart';
 const kcolormajor  = Color(0xFFFFBBCB);
 const kcolorminor  = Color(0xFFFF85A1);
 
+//random color background list
+const color1 = Color(0xFF86CDEC);
+const color2 = Color(0xFF967BB6);
+const colot3 = Color(0xFFFFE454);
+const color4 = Color(0xFFFFBBCB);
+
 const kPrimaryColor = Color.fromRGBO(0, 0, 0, 1);
 const kWhite = Color.fromARGB(255, 182, 182, 182);
 const kPrimaryLightColor = Color.fromARGB(255, 65, 65, 65);
