@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/constants.dart';
 import 'package:health_care/mainpage.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'cart_item.dart';
@@ -52,10 +53,13 @@ class _CartScreenState extends State<CartScreen> {
             Navigator.of(context).pushNamed(Mainpage.routeName);
           },
         ),
+        backgroundColor: white,
       ),
+      
       body: Column(
         children: [
           // Danh sách các sản phẩm trong giỏ hàng
+          const SizedBox(height: 16),
           Expanded(
             child: ListView.builder(
               itemCount: cartItems.length,
@@ -69,7 +73,7 @@ class _CartScreenState extends State<CartScreen> {
           ),
           // Hiển thị tổng giá tiền
           Padding(
-            padding: const EdgeInsets.all(16.0),
+            padding: const EdgeInsets.all(20.0),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [

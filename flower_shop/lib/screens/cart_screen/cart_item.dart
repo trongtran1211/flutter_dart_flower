@@ -47,51 +47,90 @@ class _CartItemWidgetState extends State<CartItemWidget> {
       margin: const EdgeInsets.symmetric(vertical: 10, horizontal: 15),
       child: Padding(
         padding: const EdgeInsets.all(0),
-        child: Row(
-          children: [
-            Container(
-              decoration: BoxDecoration(
-                color: kcolorminor.withOpacity(
-                    0.1), // Màu nền tím, có thể điều chỉnh theo ý của bạn
-                // Để bo tròn viền
+        
+        child: Container(
+          color: Colors.white, // Màu nền của Container là trắng
+          child: Row(
+            children: [
+              // Hình ảnh sản phẩm
+              Container(
+                decoration: BoxDecoration(
+                  color: kcolorminor.withOpacity(0.1), // Màu nền tím, có thể điều chỉnh theo ý của bạn
+                  // Để bo tròn viền
+                ),
+                width: 140,
+                height: 140,
+                child: Image.asset(
+                  widget.cartItem.img,
+                  fit: BoxFit.cover,
+                ),
               ),
-              width: 100,
-              height: 100,
-              child: Image.asset(
-                widget.cartItem.img,
-                width: 100,
-                height: 100,
-                fit: BoxFit.cover,
+              const SizedBox(width: 16),
+              Expanded(
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(widget.cartItem.name,
+                        style: const TextStyle(fontSize: 18)),
+                    const SizedBox(height: 5),
+                    Text(
+                      "\$${(widget.cartItem.price * widget.cartItem.quantity).toStringAsFixed(2)}",
+                    ),
+                    const SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 1,
+                                offset: Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: SizedBox(
+                            width: 35,
+                            child: IconButton(
+                              iconSize: 20,
+                              icon: const Icon(Icons.remove_circle_outline),
+                              onPressed: _decreaseQuantity,
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        Text(widget.cartItem.quantity.toString(), style: const TextStyle(fontSize: 18)),
+                        const SizedBox(width: 10),
+                        Container(
+                          decoration: const BoxDecoration(
+                            color: Colors.white,
+                            shape: BoxShape.circle,
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.black26,
+                                blurRadius: 1,
+                                offset: Offset(0, 2),
+                              ),
+                            ],
+                          ),
+                          child: SizedBox(
+                            width: 35,
+                            child: IconButton(
+                              iconSize: 20,
+                              icon: const Icon(Icons.add_circle_outline),
+                              onPressed: _increaseQuantity,
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
               ),
-            ),
-            const SizedBox(width: 10),
-            Expanded(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(widget.cartItem.name,
-                      style: const TextStyle(fontSize: 18)),
-                  const SizedBox(height: 5),
-                  Text(
-                      "\$${(widget.cartItem.price * widget.cartItem.quantity).toStringAsFixed(2)}"),
-                  Row(
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.remove_circle_outline),
-                        onPressed: _decreaseQuantity,
-                      ),
-                      Text(widget.cartItem.quantity.toString(),
-                          style: const TextStyle(fontSize: 18)),
-                      IconButton(
-                        icon: const Icon(Icons.add_circle_outline),
-                        onPressed: _increaseQuantity,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
-            ),
-          ],
+            ],
+          ),
         ),
       ),
     );
