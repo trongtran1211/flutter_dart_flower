@@ -26,6 +26,7 @@ class _SettingScreenState extends State<SettingScreen> {
             Navigator.of(context).pushNamed(Mainpage.routeName);
           },
         ),
+        backgroundColor: Colors.white
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
