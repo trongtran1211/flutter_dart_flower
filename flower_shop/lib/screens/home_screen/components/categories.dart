@@ -15,17 +15,31 @@ class Categories extends StatelessWidget {
     ];
     return Padding(
       padding: const EdgeInsets.all(20),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: List.generate(
-          categories.length,
-          (index) => CategoryCard(
-            icon: categories[index]["icon"],
-            text: categories[index]["text"],
-            press: () {},
-          ),
-        ),
+      child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            const Text(
+              'What are you looking for?',
+              style: TextStyle(
+                fontSize: 18,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+            const SizedBox(height: 20), // Optional SizedBox for spacing
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: 
+              List.generate(
+                categories.length,
+                (index) => CategoryCard(
+                  icon: categories[index]["icon"],
+                  text: categories[index]["text"],
+                  press: () {},
+                ),
+              ),
+            ),
+          ]
       ),
     );
   }

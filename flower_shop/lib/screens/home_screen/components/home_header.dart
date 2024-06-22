@@ -19,8 +19,8 @@ class HomeHeader extends StatelessWidget {
             child: Text(
               'Flora`s', 
               style: TextStyle(
-            fontSize: 20,
-            fontWeight:  FontWeight.normal,
+            fontSize: 19,
+            fontWeight:  FontWeight.w400,
 
 
           ),)),
