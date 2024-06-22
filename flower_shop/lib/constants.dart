@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-
+//mau chinh, mau phu
 const kcolormajor  = Color(0xFFFFBBCB);
 const kcolorminor  = Color(0xFFFF85A1);
 
@@ -8,7 +8,11 @@ const color1 = Color(0xFF86CDEC);
 const color2 = Color(0xFF967BB6);
 const colot3 = Color(0xFFFFE454);
 const color4 = Color(0xFFFFBBCB);
+//mau co ban
+const white = Colors.white;
+const black = Colors.black;
 
+//mau nut dam, mau nut nhat
 const kPrimaryColor = Color.fromRGBO(0, 0, 0, 1);
 const kWhite = Color.fromARGB(255, 182, 182, 182);
 const kPrimaryLightColor = Color.fromARGB(255, 65, 65, 65);
@@ -17,8 +21,11 @@ const kPrimaryGradientColor = LinearGradient(
   end: Alignment.bottomRight,
   colors: [Color(0xFFFFA53E), Color(0xFFFF7643)],
 );
+//mau navigator
 const kSecondaryColor = Color(0xFFFA1056);
+//mau text
 const kTextColor = Colors.black;
+
 
 const kAnimationDuration = Duration(milliseconds: 200);
 
