@@ -77,8 +77,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           style: ElevatedButton.styleFrom(
                             backgroundColor: Color.fromARGB(255, 255, 255, 255),
                             padding: EdgeInsets.symmetric(vertical: 12),
-                            minimumSize: Size(double.infinity,
-                                50), // Set kích thước tối thiểu
+                            minimumSize: Size(double.infinity, 50), // Set kích thước tối thiểu
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
                               side: BorderSide(color: kPrimaryColor, width: 1),
@@ -93,6 +92,15 @@ class _SplashScreenState extends State<SplashScreen> {
                           ),
                         ),
                         const SizedBox(height: 16),
+                        const Text(
+                          "or connect with",
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const SizedBox(height: 12,),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
@@ -116,7 +124,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         ),
                         const SizedBox(height: 16),
                         const Text(
-                          "- hoặc -",
+                          "or",
                           style: TextStyle(
                             fontSize: 16,
                             color: Colors.black,
@@ -128,7 +136,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           onTap: () =>
                               Navigator.pushNamed(context, Mainpage.routeName),
                           child: const Text(
-                            "No thanks. Later",
+                            "Later",
                             style: TextStyle(
                                 fontSize: 16,
                                 color: kPrimaryLightColor,
