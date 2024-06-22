@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:health_care/constants.dart';
 import 'package:health_care/screens/cart_screen/cart_screen.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
+import 'package:health_care/screens/info_screen/info_screen.dart';
 import 'package:health_care/screens/setting_screen/setting_screen.dart';
 import 'package:health_care/screens/signup_screen/signup_screen.dart';
 import 'package:health_care/screens/splash_screen/splash_screen.dart';
@@ -39,7 +40,7 @@ class _MainpageState extends State<Mainpage> {
       case 3:
         return const SettingScreen();
       case 4:
-      // nameWidgets = "Info";
+        return const PersonalInfoScreen();
     }
     return const SplashScreen();
   }
