@@ -124,34 +124,51 @@ class _MainpageState extends State<Mainpage> {
       //     ],
       //   ),
       // ),
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart),
-            label: 'Cart',
+      bottomNavigationBar: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: const BorderRadius.only(
+            topLeft: Radius.circular(20),
+            topRight: Radius.circular(20),
           ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.search),
-            label: 'Search',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Home',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.settings),
-            label: 'Setting',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.person),
-            label: 'Personal',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: kSecondaryColor,
-        unselectedItemColor: Colors.grey,
-        onTap: _onItemTapped,
-        backgroundColor: Colors.white,
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.5),
+              spreadRadius: 1,
+              blurRadius: 10,
+              offset: const Offset(0, 0),
+            ),
+          ],
+        ),
+        child: BottomNavigationBar(
+          items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(
+              icon: Icon(Icons.shopping_cart),
+              label: 'Cart',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.search),
+              label: 'Search',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Home',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.settings),
+              label: 'Setting',
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.person),
+              label: 'Personal',
+            ),
+          ],
+          currentIndex: _selectedIndex,
+          selectedItemColor: kSecondaryColor, // Change the selected item color as needed
+          unselectedItemColor: Colors.grey,
+          onTap: _onItemTapped,
+          type: BottomNavigationBarType.fixed, // This prevents the labels from shifting when selected
+        ),
       ),
       body: _loadWidget(_selectedIndex),
     );
