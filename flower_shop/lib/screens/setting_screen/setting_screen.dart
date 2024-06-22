@@ -32,50 +32,85 @@ class _SettingScreenState extends State<SettingScreen> {
         child: Column(
           children: [
             // Profile Information
-            const Row(
-              children: [
-                CircleAvatar(
-                  radius: 40,
-                  backgroundImage: AssetImage(
-                      'assets/images/profile_image.png'), // Placeholder image
-                ),
-                SizedBox(width: 16),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Nguyen Van A',
-                      style:
-                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                    ),
-                    Text('doanflutter@gmail.com | 0898891234'),
-                  ],
-                ),
-              ],
+            const Center(
+              child: Column(
+                children: [
+                  CircleAvatar(
+                    radius: 50, // Larger avatar
+                    backgroundImage: AssetImage(
+                        'assets/images/profile_image.png'), // Placeholder image
+                  ),
+                  SizedBox(height: 16),
+                  Text(
+                    'Nguyen Van A',
+                    style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                  ),
+                  Text('doanflutter@gmail.com | 0898891234'),
+                ],
+              ),
             ),
             const SizedBox(height: 20),
             // Settings Options
             Expanded(
-              child: ListView(
-                children: [
-                  buildListTile(
-                      context, Icons.person, 'Edit profile information'),
-                  buildListTile(context, Icons.notifications, 'Notifications',
-                      trailing: Text(notificationsOn ? 'ON' : 'OFF')),
-                  buildListTile(context, Icons.language, 'Language',
-                      trailing: Text(language)),
-                  buildListTile(context, Icons.security, 'Security'),
-                  buildListTile(context, Icons.brightness_6, 'Theme',
-                      trailing: Text(theme)),
-                  const Divider(),
-                  buildListTile(context, Icons.help, 'Help & Support'),
-                  buildListTile(context, Icons.contact_mail, 'Contact us'),
-                  buildListTile(context, Icons.privacy_tip, 'Privacy policy'),
-                ],
+              child: Center(
+                child: ListView(
+                  shrinkWrap: true,
+                  children: [
+                    buildSettingsGroup(
+                      context,
+                      [
+                        buildListTile(
+                            context, Icons.person, 'Edit profile information'),
+                        buildListTile(
+                            context, Icons.notifications, 'Notifications',
+                            trailing: Text(
+                              notificationsOn ? 'ON' : 'OFF',
+                              style: const TextStyle(color: Colors.pink),
+                            )),
+                        buildListTile(context, Icons.language, 'Language',
+                            trailing: Text(
+                              language,
+                              style: const TextStyle(color: Colors.pink),
+                            )),
+                      ],
+                    ),
+                    buildSettingsGroup(
+                      context,
+                      [
+                        buildListTile(context, Icons.security, 'Security'),
+                        buildListTile(context, Icons.brightness_6, 'Theme',
+                            trailing: Text(
+                              theme,
+                              style: const TextStyle(color: Colors.pink),
+                            )),
+                      ],
+                    ),
+                    buildSettingsGroup(
+                      context,
+                      [
+                        buildListTile(context, Icons.help, 'Help & Support'),
+                        buildListTile(
+                            context, Icons.contact_mail, 'Contact us'),
+                        buildListTile(
+                            context, Icons.privacy_tip, 'Privacy policy'),
+                      ],
+                    ),
+                  ],
+                ),
               ),
             ),
           ],
         ),
+      ),
+    );
+  }
+
+  Widget buildSettingsGroup(BuildContext context, List<Widget> tiles) {
+    return Card(
+      margin: const EdgeInsets.symmetric(vertical: 8.0),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(10)),
+      child: Column(
+        children: tiles,
       ),
     );
   }
@@ -88,7 +123,6 @@ class _SettingScreenState extends State<SettingScreen> {
       trailing: trailing ?? const Icon(Icons.arrow_forward_ios),
       onTap: () {
         // Handle on tap if needed
-        // For example, you can use setState to update the state
         if (title == 'Notifications') {
           setState(() {
             notificationsOn = !notificationsOn;
