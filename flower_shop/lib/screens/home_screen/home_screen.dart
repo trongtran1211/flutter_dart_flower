@@ -21,11 +21,12 @@ class HomeScreen extends StatelessWidget {
           child: Column(
             children: [
               HomeHeader(),
-              SizedBox(height: 20,),
-              SearchField(),
-              DiscountBanner(),
+              SizedBox(height: 20),
+              // SearchField(),
+              SpecialOffers(),
+              // DiscountBanner(),
               Categories(),
-              //SpecialOffers(),
+              
 
               PopularProducts(),
               SizedBox(height: 20),
