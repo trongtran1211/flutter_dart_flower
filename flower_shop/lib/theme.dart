@@ -7,11 +7,12 @@ class AppTheme {
     return ThemeData(
       scaffoldBackgroundColor: Color.fromARGB(255, 255, 255, 255),
       // fontFamily: "Muli",
-      // appBarTheme: const AppBarTheme(
-      //     color: Colors.white,
-      //     elevation: 0,
-      //     iconTheme: IconThemeData(color: Colors.black),
-      //     titleTextStyle: TextStyle(color: Colors.black)),
+       appBarTheme: const AppBarTheme(
+           color: Colors.white,
+          //  elevation: 0,
+          //  iconTheme: IconThemeData(color: Colors.black),
+          //  titleTextStyle: TextStyle(color: Colors.black)
+        ),
       // textTheme: const TextTheme(
       //   bodyLarge: TextStyle(color: kTextColor),
       //   bodyMedium: TextStyle(color: kTextColor),
