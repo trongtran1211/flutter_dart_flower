@@ -90,6 +90,7 @@ class _FogotFormState extends State<FogotForm> {
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
+                Navigator.pushNamed(context, SignInScreen.routeName);
                 _formKey.currentState!.save();
               }
             },
@@ -104,25 +105,13 @@ class _FogotFormState extends State<FogotForm> {
                 // Set border radius here
               ),
             ),
-            child: InkWell(
-              onTap: () {
-                Navigator.pushNamed(context, SignInScreen.routeName);
-              },
-              child: const Text(
-                "Send verification code",
-                style: TextStyle(
-                    fontSize: 18,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white),
-              ),
+            child: const Text(
+              "Send verification code",
+              style: TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.white),
             ),
-            // child: const Text(
-            //   "Send verification code",
-            //   style: TextStyle(
-            //       fontSize: 18,
-            //       fontWeight: FontWeight.bold,
-            //       color: Colors.white),
-            // ),
           ),
         ],
       ),
