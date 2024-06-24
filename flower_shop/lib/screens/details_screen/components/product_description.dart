@@ -57,11 +57,29 @@ class ProductDescription extends StatelessWidget {
             right: 64,
           ),
           child: Text(
+           "\$${product.price}",
+            maxLines: 1,
+            style: const TextStyle(
+              backgroundColor: kSecondaryColor, 
+              color: white,
+              fontSize: 22,
+              fontWeight: FontWeight.bold
+            ),
+          ),
+        ),
+        const SizedBox(height:16),
+        Padding(
+          padding: const EdgeInsets.only(
+            left: 20,
+            right: 64,
+          ),
+          child: Text(
             product.description,
             maxLines: 3,
           ),
         ),
-         Padding(
+        
+        Padding(
            padding: const EdgeInsets.symmetric(
              horizontal: 20,
              vertical: 12,
