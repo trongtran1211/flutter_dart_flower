@@ -43,7 +43,8 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
-                      mainAxisAlignment: MainAxisAlignment.end, // Đẩy các nút xuống dưới
+                      mainAxisAlignment:
+                          MainAxisAlignment.end, // Đẩy các nút xuống dưới
                       children: <Widget>[
                         //nút đăng ký
                         ElevatedButton(
@@ -53,8 +54,8 @@ class _SplashScreenState extends State<SplashScreen> {
                           },
                           style: ElevatedButton.styleFrom(
                             backgroundColor: kPrimaryColor,
-                            padding: EdgeInsets.symmetric(vertical: 12),
-                            minimumSize: Size(double.infinity,
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            minimumSize: const Size(double.infinity,
                                 50), // Set kích thước tối thiểu
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
@@ -75,12 +76,15 @@ class _SplashScreenState extends State<SplashScreen> {
                                 context, SignInScreen.routeName);
                           },
                           style: ElevatedButton.styleFrom(
-                            backgroundColor: Color.fromARGB(255, 255, 255, 255),
-                            padding: EdgeInsets.symmetric(vertical: 12),
-                            minimumSize: Size(double.infinity, 50), // Set kích thước tối thiểu
+                            backgroundColor:
+                                const Color.fromARGB(255, 255, 255, 255),
+                            padding: const EdgeInsets.symmetric(vertical: 12),
+                            minimumSize: const Size(double.infinity,
+                                50), // Set kích thước tối thiểu
                             shape: RoundedRectangleBorder(
                               borderRadius: BorderRadius.circular(8),
-                              side: BorderSide(color: kPrimaryColor, width: 1),
+                              side: const BorderSide(
+                                  color: kPrimaryColor, width: 1),
                             ),
                           ),
                           child: const Text(
@@ -100,12 +104,15 @@ class _SplashScreenState extends State<SplashScreen> {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        const SizedBox(height: 12,),
+                        const SizedBox(
+                          height: 12,
+                        ),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [
                             IconButton(
-                              icon: Icon(Icons.facebook, color: Colors.blue),
+                              icon: const Icon(Icons.facebook,
+                                  color: Colors.blue),
                               iconSize: 40,
                               onPressed: () {
                                 // Handle Facebook login
@@ -113,24 +120,15 @@ class _SplashScreenState extends State<SplashScreen> {
                             ),
                             const SizedBox(width: 20),
                             IconButton(
-                              icon: Icon(Icons.email, color: Colors.red),
+                              icon: const Icon(Icons.email, color: Colors.red),
                               iconSize: 40,
                               onPressed: () {
                                 // Handle Gmail login
                               },
                             ),
-                            
                           ],
                         ),
                         const SizedBox(height: 16),
-                        // const Text(
-                        //   "",
-                        //   style: TextStyle(
-                        //     fontSize: 16,
-                        //     color: Colors.black,
-                        //     fontWeight: FontWeight.bold,
-                        //   ),
-                        // ),
                         const SizedBox(height: 16),
                         GestureDetector(
                           onTap: () =>
