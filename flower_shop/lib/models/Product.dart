@@ -4,7 +4,7 @@ class Product {
   final int id;
   final String title, description;
   final List<String> images;
-  final List<Color> colors;
+  // final List<Color> colors;
   final double rating, price;
   final bool isFavourite, isPopular;
   final String category;
@@ -12,7 +12,7 @@ class Product {
   Product({
     required this.id,
     required this.images,
-    required this.colors,
+    // required this.colors,
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
@@ -30,16 +30,16 @@ List<Product> demoProducts = [
     id: 1,
     images: [
       "assets/images/flower_white_1.png",
-      "assets/images/flower_white_2.png",
-      "assets/images/flower_white_3.png",
-      "assets/images/flower_white_4.png",
+      "assets/images/flower_white_1.png",
+      "assets/images/flower_white_1.png",
+      "assets/images/flower_white_1.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa Trắng ",
     price: 64.99,
     description: description,
@@ -53,12 +53,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/hoahong.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa hồng",
     price: 50.5,
     description: description,
@@ -71,12 +71,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/hoahong.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa Cẩm tú cầu",
     price: 36.55,
     description: description,
@@ -88,14 +88,14 @@ List<Product> demoProducts = [
   Product(
     id: 4,
     images: [
-      "assets/images/hoalan.png",
+      "assets/images/flower_white_1.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa Lan",
     price: 20.20,
     description: description,
@@ -111,12 +111,12 @@ List<Product> demoProducts = [
       "assets/images/flower_white_3.png",
       "assets/images/flower_white_4.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa Trắng ",
     price: 64.99,
     description: description,
@@ -130,12 +130,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/hoahong.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa hồng",
     price: 50.5,
     description: description,
@@ -148,12 +148,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/hoahong.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa Cẩm tú cầu",
     price: 36.55,
     description: description,
@@ -167,12 +167,12 @@ List<Product> demoProducts = [
     images: [
       "assets/images/hoahong.png",
     ],
-    colors: [
-      const Color(0xFFF6625E),
-      const Color(0xFF836DB8),
-      const Color(0xFFDECB9C),
-      Colors.white,
-    ],
+    // colors: [
+    //   const Color(0xFFF6625E),
+    //   const Color(0xFF836DB8),
+    //   const Color(0xFFDECB9C),
+    //   Colors.white,
+    // ],
     title: "Hoa hồng",
     price: 20.20,
     description: description,
@@ -183,4 +183,4 @@ List<Product> demoProducts = [
 ];
 
 const String description =
-    "";
+    "Hoa hồng là một loài hoa nổi tiếng và được ưa chuộng trên toàn thế giới vì vẻ đẹp và hương thơm của nó. Dưới đây là một số thông tin cơ bản về hoa hồng: Hoa hồng thường có cánh hoa mỏng, mềm mại, xếp chồng lên nhau thành từng lớp tạo thành bông hoa đẹp mắt. Hoa có nhiều loại màu sắc khác nhau như đỏ, hồng, trắng, vàng, cam, và xanh.";

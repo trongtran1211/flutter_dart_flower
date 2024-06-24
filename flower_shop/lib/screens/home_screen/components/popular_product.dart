@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/components/product_card.dart';
 import 'package:health_care/models/Product.dart';
+import 'package:health_care/screens/details_screen/details_screen.dart';
 
 
 import 'section_title.dart';
@@ -31,13 +32,17 @@ class PopularProducts extends StatelessWidget {
               ...List.generate(
                 demoProducts.length,
                 (index) {
-                  if (demoProducts[index].isPopular) {
+                  if (demoProducts[index].isFavourite) {
                     return Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: ProductCard(
                         product: demoProducts[index],
-                        onPress: () => 
-                        {}
+                        onPress: () => Navigator.pushNamed(
+                          context,
+                          DetailsScreen.routeName,
+                          arguments: ProductDetailsArguments(
+                              product: demoProducts[index]),
+                        ),
                       ),
                     );
                   }

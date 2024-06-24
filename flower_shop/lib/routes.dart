@@ -1,6 +1,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:health_care/mainpage.dart';
 import 'package:health_care/screens/cart_screen/cart_screen.dart';
+import 'package:health_care/screens/details_screen/details_screen.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'package:health_care/screens/info_screen/info_screen.dart';
 import 'package:health_care/screens/setting_screen/setting_screen.dart';
@@ -17,4 +18,5 @@ final Map<String, WidgetBuilder> routes = {
   CartScreen.routeName: (context) => const CartScreen(),
   SettingScreen.routeName: (context) => const SettingScreen(),
   PersonalInfoScreen.routeName: (context) => const PersonalInfoScreen(),
+  DetailsScreen.routeName: (context) => const DetailsScreen(),
 };
