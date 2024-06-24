@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/constants.dart';
+import 'package:health_care/mainpage.dart';
 import 'package:health_care/models/CartItem.dart';
 import 'package:health_care/screens/cart_screen/cart_item_widget.dart';
 import 'package:health_care/screens/cart_screen/cart_provider.dart';
@@ -23,7 +24,15 @@ class _CartScreenState extends State<CartScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Giỏ Hàng'),
+        title: const Text("Shopping Cart"),
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () {
+            Navigator.of(context).pushNamed(Mainpage.routeName);
+          },
+        ),
+        backgroundColor: Colors.white
+
       ),
       body: Column(
         children: [
@@ -96,7 +105,8 @@ class _CartScreenState extends State<CartScreen> {
                     'Thanh Toán',
                     style: TextStyle(
                       color: white,
-                      fontWeight: FontWeight.bold
+                      fontWeight: FontWeight.bold,
+                      fontSize: 16
 
                     ),
                     ),
