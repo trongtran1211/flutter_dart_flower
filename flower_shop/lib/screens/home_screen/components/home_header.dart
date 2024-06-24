@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/mainpage.dart';
 
 import 'icon_btn_with_counter.dart';
-import 'search_field.dart';
+
 
 class HomeHeader extends StatelessWidget {
   const HomeHeader({
@@ -15,15 +16,20 @@ class HomeHeader extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const Expanded(
-            child: Text(
-              'Flora`s', 
-              style: TextStyle(
-            fontSize: 19,
-            fontWeight:  FontWeight.w400,
-
-
-          ),)),
+          Expanded(
+            child: InkWell(
+              onTap: () {
+                Navigator.of(context).pushNamed(Mainpage.routeName);// Navigate back to the home screen
+              },
+              child: const Text(
+                'Flora`s',
+                style: TextStyle(
+                  fontSize: 19,
+                  fontWeight: FontWeight.w400,
+                ),
+              ),
+            ),
+          ),
           const SizedBox(width: 16),
           IconBtnWithCounter(
             svgSrc: "assets/icons/bell.svg",

@@ -123,20 +123,20 @@ class _SplashScreenState extends State<SplashScreen> {
                           ],
                         ),
                         const SizedBox(height: 16),
-                        const Text(
-                          "or",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.black,
-                            fontWeight: FontWeight.bold,
-                          ),
-                        ),
+                        // const Text(
+                        //   "",
+                        //   style: TextStyle(
+                        //     fontSize: 16,
+                        //     color: Colors.black,
+                        //     fontWeight: FontWeight.bold,
+                        //   ),
+                        // ),
                         const SizedBox(height: 16),
                         GestureDetector(
                           onTap: () =>
                               Navigator.pushNamed(context, Mainpage.routeName),
                           child: const Text(
-                            "Later",
+                            "No thanks! Later",
                             style: TextStyle(
                                 fontSize: 16,
                                 color: kPrimaryLightColor,
