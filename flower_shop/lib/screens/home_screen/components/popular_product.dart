@@ -42,24 +42,33 @@ class PopularProducts extends StatelessWidget {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              const SizedBox(height: 20),
-              ...List.generate(
-                searchResults.length,
-                (index) {
-                  if (searchResults[index].isFavourite) {
-                    return Padding(
-                      padding: const EdgeInsets.only(left: 20),
-                      child: ProductCard(
-                        product: searchResults[index],
-                        onPress: () => Navigator.pushNamed(
-                          context,
-                          DetailsScreen.routeName,
-                          arguments: ProductDetailsArguments(
-                              product: searchResults[index]),
+              if (searchResults.isEmpty)
+                const Padding(
+                  padding: EdgeInsets.only(left: 20),
+                  child: Text(
+                    "Không tìm thấy sản phẩm nào",
+                    style: TextStyle(fontSize: 15, color: Colors.red),
+                  ),
+                )
+              else
+                const SizedBox(height: 20),
+                ...List.generate(
+                  searchResults.length,
+                  (index) {
+                    if (searchResults[index].isFavourite) {
+                      return Padding(
+                        padding: const EdgeInsets.only(left: 20),
+                        child: ProductCard(
+                          product: searchResults[index],
+                          onPress: () => Navigator.pushNamed(
+                            context,
+                            DetailsScreen.routeName,
+                            arguments: ProductDetailsArguments(
+                                product: searchResults[index]),
+                          ),
                         ),
-                      ),
-                    );
-                  }
+                      );
+                    }
 
                   return const SizedBox
                       .shrink(); // here by default width and height is 0
