@@ -1,20 +1,18 @@
 import 'package:flutter/material.dart';
-import 'package:health_care/screens/forgotpass_screen/OTPVerification_screen.dart';
-import 'package:health_care/screens/signin_screen/signin_screen.dart';
+import 'package:health_care/screens/forgotpass_screen/forgotpass_screen.dart';
 import '../../../constants.dart';
 
-class FogotForm extends StatefulWidget {
-  const FogotForm({super.key});
+class OTPForm extends StatefulWidget {
+  const OTPForm({super.key});
 
   @override
-  State<FogotForm> createState() => _FogotFormState();
+  State<OTPForm> createState() => _OTPFormState();
 }
 
-class _FogotFormState extends State<FogotForm> {
- final _formKey = GlobalKey<FormState>();
-  String? email;
-  String? password;
-  bool? remember = false;
+class _OTPFormState extends State<OTPForm> {
+  final _formKey = GlobalKey<FormState>();
+  late String otp;
+
   final List<String?> errors = [];
 
   void addError({String? error}) {
@@ -32,7 +30,6 @@ class _FogotFormState extends State<FogotForm> {
       });
     }
   }
-
   @override
   Widget build(BuildContext context) {
     return Form(
@@ -40,29 +37,29 @@ class _FogotFormState extends State<FogotForm> {
       child: Column(
         children: [
           TextFormField(
-            keyboardType: TextInputType.emailAddress,
-            onSaved: (newValue) => email = newValue,
+            keyboardType: TextInputType.number,
+            onSaved: (newValue) => otp = newValue!,
             onChanged: (value) {
               if (value.isNotEmpty) {
-                removeError(error: kEmailNullError);
-              } else if (emailValidatorRegExp.hasMatch(value)) {
-                removeError(error: kInvalidEmailError);
+                removeError(error: kOTPNullError);
+              } else if (value.length == 6) {
+                removeError(error: kInvalidOTPError);
               }
               return;
             },
             validator: (value) {
               if (value!.isEmpty) {
-                addError(error: kEmailNullError);
+                addError(error: kOTPNullError);
                 return "Không được bỏ trống";
-              } else if (!emailValidatorRegExp.hasMatch(value)) {
-                addError(error: kInvalidEmailError);
-                return "Email không tồn tại";
+              } else if (value.length != 6) {
+                addError(error: kInvalidOTPError);
+                return "OTP phải có 6 chữ số";
               }
               return null;
             },
             decoration: InputDecoration(
-              labelText: 'Email',
-              hintText: 'Enter your email',
+              labelText: 'OTP',
+              hintText: 'Enter OTP sent',
               floatingLabelBehavior: FloatingLabelBehavior.always,
 
               contentPadding:
@@ -91,7 +88,7 @@ class _FogotFormState extends State<FogotForm> {
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, OTPVerificationScreen.routeName);
+                Navigator.pushNamed(context, ForgotPasswordScreen.routeName);
                 _formKey.currentState!.save();
               }
             },
@@ -107,7 +104,7 @@ class _FogotFormState extends State<FogotForm> {
               ),
             ),
             child: const Text(
-              "Send verification code",
+              "Confirm",
               style: TextStyle(
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
