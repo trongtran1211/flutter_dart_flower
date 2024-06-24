@@ -6,7 +6,6 @@ import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'package:health_care/screens/search_screen/search_screen.dart';
 import 'package:health_care/screens/info_screen/info_screen.dart';
 import 'package:health_care/screens/setting_screen/setting_screen.dart';
-import 'package:health_care/screens/signup_screen/signup_screen.dart';
 import 'package:health_care/screens/splash_screen/splash_screen.dart';
 
 class Mainpage extends StatefulWidget {
