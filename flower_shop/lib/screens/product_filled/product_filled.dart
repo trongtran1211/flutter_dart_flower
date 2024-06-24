@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/components/product_card.dart';
 import 'package:health_care/models/Product.dart';
+import 'package:health_care/screens/details_screen/details_screen.dart';
 import 'package:health_care/screens/home_screen/components/home_header.dart';
 import 'package:health_care/screens/home_screen/components/search_field.dart';
 
@@ -41,13 +42,13 @@ class FilteredProductsPage extends StatelessWidget {
                   ),
                   itemBuilder: (context, index) => ProductCard(
                     product: filteredProducts[index],
-                    onPress: () => {}
-                    // Navigator.pushNamed(
-                    //   context,
-                    //   DetailsScreen.routeName,
-                    //   arguments:
-                    //       ProductDetailsArguments(product: demoProducts[index]),
-                    // ),
+                    onPress: () => 
+                      Navigator.pushNamed(
+                      context,
+                      DetailsScreen.routeName,
+                      arguments:
+                          ProductDetailsArguments(product: filteredProducts[index]),
+                    ),  
                   ),
                 ),
               ),
