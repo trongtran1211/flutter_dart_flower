@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:health_care/screens/cart_screen/cart_screen.dart';
+import 'package:health_care/constants.dart';
+import 'package:health_care/models/CartItem.dart';
+import 'package:health_care/screens/cart_screen/cart_provider.dart';
+
+import 'package:provider/provider.dart';
 
 
 import '../../models/Product.dart';
@@ -21,9 +25,9 @@ class DetailsScreen extends StatelessWidget {
     return Scaffold(
       extendBody: true,
       extendBodyBehindAppBar: true,
-      backgroundColor: const Color(0xFFF5F6F9),
+      backgroundColor: white,
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: white,
         elevation: 0,
         leading: Padding(
           padding: const EdgeInsets.all(8.0),
@@ -103,11 +107,22 @@ class DetailsScreen extends StatelessWidget {
         child: SafeArea(
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
-            child: ElevatedButton(
+            child: 
+            ElevatedButton(
               onPressed: () {
-                Navigator.pushNamed(context, CartScreen.routeName);
+                CartProvider cartProvider = Provider.of<CartProvider>(context, listen: false);
+                cartProvider.addToCart(CartItem(
+                  id: product.id,
+                  name: product.title,
+                  price: product.price,
+                  img: product.images[0],
+                  quantity: 1,
+                ));
+                ScaffoldMessenger.of(context).showSnackBar(
+                  SnackBar(content: Text('Added to Cart')),
+                );
               },
-              child: const Text("Add To Cart"),
+              child: const Text('Add To Cart'),
             ),
           ),
         ),

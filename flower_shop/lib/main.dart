@@ -1,10 +1,20 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/screens/cart_screen/cart_provider.dart';
 import 'package:health_care/theme.dart';
+import 'package:provider/provider.dart';
 import 'routes.dart';
 import 'package:health_care/screens/splash_screen/splash_screen.dart';
 
 void main() {
-  runApp(const MainApp());
+  runApp(
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (_) => CartProvider()), // Thay thế bằng lớp Provider của bạn
+        // Các provider khác nếu cần thiết
+      ],
+      child: MainApp(),
+    ),
+    );
 }
 
 class MainApp extends StatelessWidget {
