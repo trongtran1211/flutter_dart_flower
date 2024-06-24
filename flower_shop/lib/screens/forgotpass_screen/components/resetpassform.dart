@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:health_care/screens/forgotpass_screen/Successful_otp_screen.dart';
 import 'package:health_care/screens/forgotpass_screen/forgotpass_screen.dart';
 import '../../../constants.dart';
 
@@ -136,7 +137,7 @@ class _ResetPassFormState extends State<ResetPassForm> {
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, ForgotPasswordScreen.routeName);
+                Navigator.pushNamed(context, SuccessfulotpScreen.routeName);
                 _formKey.currentState!.save();
               }
             },
