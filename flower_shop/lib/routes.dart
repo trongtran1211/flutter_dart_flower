@@ -3,6 +3,7 @@
 import 'package:flutter/widgets.dart';
 import 'package:health_care/mainpage.dart';
 import 'package:health_care/screens/forgotpass_screen/OTPVerification_screen.dart';
+import 'package:health_care/screens/forgotpass_screen/Reset_password_screen.dart';
 import 'package:health_care/screens/forgotpass_screen/forgotpass_screen.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'package:health_care/screens/signin_screen/signin_screen.dart';
@@ -18,4 +19,5 @@ final Map<String, WidgetBuilder> routes = {
   Mainpage.routeName: (context) => const Mainpage(),
   ForgotPasswordScreen.routeName:(context) => const ForgotPasswordScreen(),
   OTPVerificationScreen.routeName:(context) => const OTPVerificationScreen(),
+  ResetPassOTPScreen.routeName:(context) => const ResetPassOTPScreen(),
 };
