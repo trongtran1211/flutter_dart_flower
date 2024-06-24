@@ -43,8 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 20),
                     child: Column(
-                      mainAxisAlignment:
-                          MainAxisAlignment.end, // Đẩy các nút xuống dưới
+                      mainAxisAlignment: MainAxisAlignment.end, // Đẩy các nút xuống dưới
                       children: <Widget>[
                         //nút đăng ký
                         ElevatedButton(
@@ -70,6 +69,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           ),
                         ),
                         const SizedBox(height: 16),
+                        //nút đăng nhập 
                         ElevatedButton(
                           onPressed: () {
                             Navigator.pushNamed(
@@ -96,6 +96,7 @@ class _SplashScreenState extends State<SplashScreen> {
                           ),
                         ),
                         const SizedBox(height: 16),
+                        //or connect with
                         const Text(
                           "or connect with",
                           style: TextStyle(
@@ -107,6 +108,7 @@ class _SplashScreenState extends State<SplashScreen> {
                         const SizedBox(
                           height: 12,
                         ),
+                        //logo 
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: [

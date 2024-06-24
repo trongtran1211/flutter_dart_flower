@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:health_care/components/product_card.dart';
 import 'package:health_care/models/Product.dart';
 import 'package:health_care/screens/details_screen/details_screen.dart';
+import 'package:health_care/screens/search_screen/components/search_provider.dart';
+import 'package:provider/provider.dart';
 
 
 import 'section_title.dart';
@@ -13,7 +15,17 @@ class PopularProducts extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    //lấy searchquery từ search field 
+    final searchQuery = Provider.of<SearchProvider>(context).searchQuery;
+    final searchResults = demoProducts.where((product) {
+      final titleLower = product.title.toLowerCase();
+      final searchLower = searchQuery.toLowerCase();
+      return titleLower.contains(searchLower);
+    }).toList();
+
+
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: 20),
@@ -28,20 +40,22 @@ class PopularProducts extends StatelessWidget {
         SingleChildScrollView(
           scrollDirection: Axis.horizontal,
           child: Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              const SizedBox(height: 20),
               ...List.generate(
-                demoProducts.length,
+                searchResults.length,
                 (index) {
-                  if (demoProducts[index].isFavourite) {
+                  if (searchResults[index].isFavourite) {
                     return Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: ProductCard(
-                        product: demoProducts[index],
+                        product: searchResults[index],
                         onPress: () => Navigator.pushNamed(
                           context,
                           DetailsScreen.routeName,
                           arguments: ProductDetailsArguments(
-                              product: demoProducts[index]),
+                              product: searchResults[index]),
                         ),
                       ),
                     );

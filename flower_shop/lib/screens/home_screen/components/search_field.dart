@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:health_care/screens/search_screen/components/search_provider.dart';
+import 'package:provider/provider.dart';
 
 import '../../../constants.dart';
 
@@ -15,7 +17,9 @@ class SearchField extends StatelessWidget {
     child: Form(
       child: 
       TextFormField(
-        onChanged: (value) {},
+        onChanged: (value) {
+          Provider.of<SearchProvider>(context, listen: false).updateSearchQuery(value);
+        },
         decoration: InputDecoration(
           filled: true,
           fillColor: kWhite.withOpacity(0.1),
