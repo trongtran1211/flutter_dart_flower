@@ -122,7 +122,17 @@ class DetailsScreen extends StatelessWidget {
                   SnackBar(content: Text('Added to Cart')),
                 );
               },
-              child: const Text('Add To Cart'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: black
+              ),
+              child: const Text(
+                'Add To Cart',
+              style: TextStyle(
+                color: white,
+                fontWeight: FontWeight.bold,
+                fontSize: 16
+              ),
+              ),
             ),
           ),
         ),
