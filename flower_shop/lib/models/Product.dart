@@ -1,10 +1,10 @@
+import 'dart:convert';
 import 'package:flutter/material.dart';
 
 class Product {
   final int id;
   final String title, description;
   final List<String> images;
-  // final List<Color> colors;
   final double rating, price;
   final bool isFavourite, isPopular;
   final String category;
@@ -12,175 +12,40 @@ class Product {
   Product({
     required this.id,
     required this.images,
-    // required this.colors,
     this.rating = 0.0,
     this.isFavourite = false,
     this.isPopular = false,
     required this.title,
     required this.price,
     required this.description,
-    required this.category
+    required this.category,
   });
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'],
+      images: List<String>.from(json['images']),
+      title: json['title'],
+      price: json['price'].toDouble(),
+      description: json['description'],
+      rating: json['rating'] ?? 0.0,
+      isFavourite: json['isFavourite'] ?? false,
+      isPopular: json['isPopular'] ?? false,
+      category: json['category'],
+    );
+  }
 }
 
-// Our demo dữ liệu của product
+List<Product> demoProducts = [];
 
-List<Product> demoProducts = [
-  Product(
-    id: 1,
-    images: [
-      "assets/images/flower_white_1.png",
-      "assets/images/flower_white_1.png",
-      "assets/images/flower_white_1.png",
-      "assets/images/flower_white_1.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa Trắng ",
-    price: 64.99,
-    description: description,
-    rating: 4.8,
-    isFavourite: true,
-    isPopular: true,
-    category: "Flower"
-  ),
-  Product(
-    id: 2,
-    images: [
-      "assets/images/hoahong.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa hồng",
-    price: 50.5,
-    description: description,
-    rating: 4.1,
-    isPopular: true,
-    category: "Flower"
-  ),
-  Product(
-    id: 3,
-    images: [
-      "assets/images/hoahong.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa Cẩm tú cầu",
-    price: 36.55,
-    description: description,
-    rating: 4.1,
-    isFavourite: true,
-    isPopular: true,
-    category: "Gift"
-  ),
-  Product(
-    id: 4,
-    images: [
-      "assets/images/flower_white_1.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa Lan",
-    price: 20.20,
-    description: description,
-    rating: 4.1,
-    isFavourite: true,
-    category: "Special"
-  ),
-  Product(
-    id: 1,
-    images: [
-      "assets/images/flower_white_1.png",
-      "assets/images/flower_white_1.png",
-      "assets/images/flower_white_1.png",
-      "assets/images/flower_white_1.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa Trắng ",
-    price: 64.99,
-    description: description,
-    rating: 4.8,
-    isFavourite: true,
-    isPopular: true,
-    category: "Daily Gift"
-  ),
-  Product(
-    id: 2,
-    images: [
-      "assets/images/hoahong.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa hồng",
-    price: 50.5,
-    description: description,
-    rating: 4.1,
-    isPopular: true,
-    category: "Flower"
-  ),
-  Product(
-    id: 3,
-    images: [
-      "assets/images/hoahong.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa Cẩm tú cầu",
-    price: 36.55,
-    description: description,
-    rating: 4.1,
-    isFavourite: true,
-    isPopular: true,
-    category: "Classify"
-  ),
-  Product(
-    id: 4,
-    images: [
-      "assets/images/hoahong.png",
-    ],
-    // colors: [
-    //   const Color(0xFFF6625E),
-    //   const Color(0xFF836DB8),
-    //   const Color(0xFFDECB9C),
-    //   Colors.white,
-    // ],
-    title: "Hoa hồng",
-    price: 20.20,
-    description: description,
-    rating: 4.1,
-    isFavourite: true,
-    category: "Flower"
-  ),
-];
-
-const String description =
-    "Hoa hồng là một loài hoa nổi tiếng và được ưa chuộng trên toàn thế giới vì vẻ đẹp và hương thơm của nó. Dưới đây là một số thông tin cơ bản về hoa hồng: Hoa hồng thường có cánh hoa mỏng, mềm mại, xếp chồng lên nhau thành từng lớp tạo thành bông hoa đẹp mắt. Hoa có nhiều loại màu sắc khác nhau như đỏ, hồng, trắng, vàng, cam, và xanh.";
+Future<void> fetchProducts(BuildContext context) async {
+  try {
+    //sau này thay đường dẫn này thành api api/product/getAll
+    String jsonData = await DefaultAssetBundle.of(context).loadString('assets/products.json');
+    List<dynamic> jsonList = json.decode(jsonData);
+    demoProducts = jsonList.map((json) => Product.fromJson(json)).toList();
+  } catch (e) {
+    print('Error fetching products: $e');
+    // Handle error as per your app's requirements
+  }
+}

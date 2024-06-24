@@ -9,6 +9,14 @@ class Categories extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    return FutureBuilder<void>(
+      future: fetchProducts(context), // Gọi fetchProducts để tải dữ liệu
+      builder: (context, snapshot) {
+        if (snapshot.connectionState == ConnectionState.waiting) {
+          return Center(child: CircularProgressIndicator());
+        } else if (snapshot.hasError) {
+          return Center(child: Text('Error loading products'));
+        } else {
      // Extract unique categories from products
      // lấy ra danh sách loại sản phẩm từ sản phẩm
     List<String> categories = demoProducts
@@ -63,6 +71,9 @@ class Categories extends StatelessWidget {
             ),
           ]
       ),
+    );
+  }
+  }
     );
   }
 }
