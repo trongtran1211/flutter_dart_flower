@@ -1,18 +1,30 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:health_care/models/Product.dart';
+import 'package:health_care/screens/product_filled/filled_screen.dart';
+
 
 class Categories extends StatelessWidget {
   const Categories({super.key});
 
   @override
   Widget build(BuildContext context) {
-    List<Map<String, dynamic>> categories = [
-      {"icon": "assets/icons/flower.svg", "text": "Flower"},
-      {"icon": "assets/icons/gift.svg", "text": "Gift"},
-      {"icon": "assets/icons/special.svg", "text": "Special"},
-      {"icon": "assets/icons/dailygift.svg", "text": "Daily Gift"},
-      {"icon": "assets/icons/classify.svg", "text": "Classify"},
-    ];
+     // Extract unique categories from products
+     // lấy ra danh sách loại sản phẩm từ sản phẩm
+    List<String> categories = demoProducts
+        .map((product) => product.category)
+        .toSet()
+        .toList();
+
+    
+    // Define a map for icons associated with categories
+    Map<String, String> categoryIcons = {
+      "Flower": "assets/icons/flower.svg",
+      "Gift": "assets/icons/gift.svg",
+      "Special": "assets/icons/special.svg",
+      "Daily Gift": "assets/icons/dailygift.svg",
+      "Classify": "assets/icons/classify.svg",
+    };
     return Padding(
       padding: const EdgeInsets.all(20),
       child: Column(
@@ -33,9 +45,19 @@ class Categories extends StatelessWidget {
               List.generate(
                 categories.length,
                 (index) => CategoryCard(
-                  icon: categories[index]["icon"],
-                  text: categories[index]["text"],
-                  press: () {},
+                  icon: categoryIcons[categories[index]] ?? "assets/icons/Flower.svg",
+                  text: categories[index],
+                  press: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => FilledScreen(
+                          category: categories[index],
+                          products: demoProducts,
+                        ),
+                      ),
+                    );
+                  },
                 ),
               ),
             ),

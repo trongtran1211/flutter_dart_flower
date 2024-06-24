@@ -7,6 +7,7 @@ class Product {
   final List<Color> colors;
   final double rating, price;
   final bool isFavourite, isPopular;
+  final String category;
 
   Product({
     required this.id,
@@ -18,6 +19,7 @@ class Product {
     required this.title,
     required this.price,
     required this.description,
+    required this.category
   });
 }
 
@@ -44,6 +46,7 @@ List<Product> demoProducts = [
     rating: 4.8,
     isFavourite: true,
     isPopular: true,
+    category: "Flower"
   ),
   Product(
     id: 2,
@@ -61,6 +64,7 @@ List<Product> demoProducts = [
     description: description,
     rating: 4.1,
     isPopular: true,
+    category: "Flower"
   ),
   Product(
     id: 3,
@@ -79,6 +83,7 @@ List<Product> demoProducts = [
     rating: 4.1,
     isFavourite: true,
     isPopular: true,
+    category: "Gift"
   ),
   Product(
     id: 4,
@@ -96,6 +101,7 @@ List<Product> demoProducts = [
     description: description,
     rating: 4.1,
     isFavourite: true,
+    category: "Special"
   ),
   Product(
     id: 1,
@@ -117,6 +123,7 @@ List<Product> demoProducts = [
     rating: 4.8,
     isFavourite: true,
     isPopular: true,
+    category: "Daily Gift"
   ),
   Product(
     id: 2,
@@ -134,6 +141,7 @@ List<Product> demoProducts = [
     description: description,
     rating: 4.1,
     isPopular: true,
+    category: "Flower"
   ),
   Product(
     id: 3,
@@ -152,6 +160,7 @@ List<Product> demoProducts = [
     rating: 4.1,
     isFavourite: true,
     isPopular: true,
+    category: "Classify"
   ),
   Product(
     id: 4,
@@ -169,6 +178,7 @@ List<Product> demoProducts = [
     description: description,
     rating: 4.1,
     isFavourite: true,
+    category: "Flower"
   ),
 ];
 
