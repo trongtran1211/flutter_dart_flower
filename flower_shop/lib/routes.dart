@@ -25,9 +25,6 @@ final Map<String, WidgetBuilder> routes = {
   PersonalInfoScreen.routeName: (context) => const PersonalInfoScreen(),
   DetailsScreen.routeName: (context) => const DetailsScreen(),
   EditProfileScreen.routeName: (context) => const EditProfileScreen(),
-  OTPVerificationScreen.routeName: (context) => const OTPVerificationScreen(),
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
-  SuccessfulotpScreen.routeName: (context) => const SuccessfulotpScreen(),
-  ResetPassOTPScreen.routeName: (context) => const ResetPassOTPScreen(),
   ForgotPasswordScreen.routeName:(context) => const ForgotPasswordScreen(),
 };
