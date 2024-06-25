@@ -4,14 +4,14 @@ import 'package:health_care/mainpage.dart';
 import 'package:health_care/models/CartItem.dart';
 import 'package:health_care/screens/cart_screen/cart_item_widget.dart';
 import 'package:health_care/screens/cart_screen/cart_provider.dart';
+import 'package:health_care/checkout_payment/checkout_payment_screen.dart';
 import 'package:provider/provider.dart';
 
-
 class CartScreen extends StatefulWidget {
-   static String routeName = "/cart";
+  static String routeName = "/cart";
 
   const CartScreen({super.key});
-  
+
   @override
   _CartScreenState createState() => _CartScreenState();
 }
@@ -31,8 +31,7 @@ class _CartScreenState extends State<CartScreen> {
             Navigator.of(context).pushNamed(Mainpage.routeName);
           },
         ),
-        backgroundColor: Colors.white
-
+        backgroundColor: Colors.white,
       ),
       body: Column(
         children: [
@@ -54,7 +53,7 @@ class _CartScreenState extends State<CartScreen> {
             padding: const EdgeInsets.all(16.0),
             decoration: BoxDecoration(
               color: Colors.white,
-              boxShadow: [
+              boxShadow: const [
                 BoxShadow(
                   color: Colors.black26,
                   blurRadius: 10,
@@ -70,29 +69,33 @@ class _CartScreenState extends State<CartScreen> {
                   children: [
                     const Text(
                       'Tổng cộng:',
-                      style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style:
+                          TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                     Text(
                       '\$${cartProvider.getTotalPrice().toStringAsFixed(2)}',
-                      style: const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                      style: const TextStyle(
+                          fontSize: 20, fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Thêm logic thanh toán tại đây
+                    // Show the dialog first
                     showDialog(
                       context: context,
                       builder: (context) => AlertDialog(
-                        title: const Text('Thanh Toán'),
+                        title: const Text('Thông báo'),
                         content: const Text('Cảm ơn bạn đã mua hàng!'),
                         actions: [
                           TextButton(
                             onPressed: () {
                               Navigator.of(context).pop();
+                              Navigator.of(context)
+                                  .pushNamed(PaymentCheckout.routeName);
                             },
-                            child: const Text('Đóng'),
+                            child: const Text('Thanh toán'),
                           ),
                         ],
                       ),
@@ -106,10 +109,9 @@ class _CartScreenState extends State<CartScreen> {
                     style: TextStyle(
                       color: white,
                       fontWeight: FontWeight.bold,
-                      fontSize: 16
-
+                      fontSize: 16,
                     ),
-                    ),
+                  ),
                 ),
               ],
             ),
