@@ -91,7 +91,10 @@ class _FogotFormState extends State<FogotForm> {
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, OTPVerificationScreen.routeName);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => OTPVerificationScreen()),
+                );
                 _formKey.currentState!.save();
               }
             },

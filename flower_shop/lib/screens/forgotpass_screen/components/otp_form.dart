@@ -88,7 +88,10 @@ class _OTPFormState extends State<OTPForm> {
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, ResetPassOTPScreen.routeName);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => ResetPassOTPScreen()),
+                );
                 _formKey.currentState!.save();
               }
             },

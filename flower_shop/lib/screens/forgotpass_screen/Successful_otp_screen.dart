@@ -3,7 +3,6 @@ import 'package:health_care/constants.dart';
 import 'package:health_care/screens/signin_screen/signin_screen.dart';
 
 class SuccessfulotpScreen extends StatelessWidget {
-  static String routeName = "/SuccessfulOTP";
   const SuccessfulotpScreen({super.key});
 
   @override

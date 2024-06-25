@@ -137,7 +137,10 @@ class _ResetPassFormState extends State<ResetPassForm> {
           ElevatedButton(
             onPressed: () {
               if (_formKey.currentState!.validate()) {
-                Navigator.pushNamed(context, SuccessfulotpScreen.routeName);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => SuccessfulotpScreen()),
+                );
                 _formKey.currentState!.save();
               }
             },

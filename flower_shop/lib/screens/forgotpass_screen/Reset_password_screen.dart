@@ -4,7 +4,6 @@ import 'package:health_care/constants.dart';
 import 'package:health_care/screens/forgotpass_screen/components/resetpassform.dart';
 
 class ResetPassOTPScreen extends StatefulWidget {
-  static String routeName = "/resetpassotp";
   const ResetPassOTPScreen({super.key});
 
   @override

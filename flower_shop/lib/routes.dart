@@ -29,4 +29,5 @@ final Map<String, WidgetBuilder> routes = {
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   SuccessfulotpScreen.routeName: (context) => const SuccessfulotpScreen(),
   ResetPassOTPScreen.routeName: (context) => const ResetPassOTPScreen(),
+  ForgotPasswordScreen.routeName:(context) => const ForgotPasswordScreen(),
 };
