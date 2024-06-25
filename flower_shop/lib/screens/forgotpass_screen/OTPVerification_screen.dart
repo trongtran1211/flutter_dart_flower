@@ -4,7 +4,6 @@ import 'package:health_care/constants.dart';
 import 'package:health_care/screens/forgotpass_screen/components/otp_form.dart';
 
 class OTPVerificationScreen extends StatefulWidget {
-  static String routeName = "/OTPVerification";
   const OTPVerificationScreen({super.key});
 
   @override
