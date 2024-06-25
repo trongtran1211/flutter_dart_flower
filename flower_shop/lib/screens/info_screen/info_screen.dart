@@ -1,11 +1,24 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
+import 'package:health_care/models/User.dart';
 
 class PersonalInfoScreen extends StatelessWidget {
   const PersonalInfoScreen({super.key});
   static String routeName = "/info";
+
   @override
   Widget build(BuildContext context) {
+    // Dummy user data, you can replace this with actual data retrieval logic
+    final user = User(
+      fullName: 'Nguyen Van A',
+      email: 'doanflutter@gmail.com',
+      phoneNumber: '0989891234',
+      country: 'Hồ Chí Minh',
+      gender: 'Nam',
+      address: '828 Sư Vạn Hạnh, Phường 13, Quận 10, TP.HCM',
+      password: '********',
+    );
+
     return Scaffold(
       appBar: AppBar(
         title: const Text("Personal information"),
@@ -16,78 +29,83 @@ class PersonalInfoScreen extends StatelessWidget {
           },
         ),
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(16.0),
+      body: SingleChildScrollView(
+        padding: const EdgeInsets.all(16.0),
         child: Column(
-          children: [
-            CircleAvatar(
-              radius: 50,
-              backgroundImage: AssetImage('assets/images/profile_image.png'),
+          children: <Widget>[
+            GestureDetector(
+              onTap: () {
+                Navigator.of(context).pushNamed(Mainpage.routeName);
+              },
+              child: const CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage(
+                    'assets/profile_image.png'), // Thêm ảnh asset hoặc ảnh từ mạng
+              ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 16),
             Text(
-              'Nguyen Van A',
-              style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              user.fullName ?? 'N/A',
+              style: const TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 20),
-            InfoField(label: 'Full name', value: 'Nguyen Van A'),
-            InfoField(label: 'Email', value: 'doanflutter@gmail.com'),
-            InfoField(label: 'Phone number', value: '0989891234'),
+            const SizedBox(height: 16),
+            TextFormField(
+              initialValue: user.fullName,
+              decoration: const InputDecoration(
+                labelText: 'Full Name',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              initialValue: user.email,
+              decoration: const InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
+            TextFormField(
+              initialValue: user.phoneNumber,
+              decoration: const InputDecoration(
+                labelText: 'Phone Number',
+                border: OutlineInputBorder(),
+              ),
+            ),
+            const SizedBox(height: 16),
             Row(
-              children: [
+              children: <Widget>[
                 Expanded(
-                  child: InfoField(label: 'Country', value: 'Ho Chi Minh'),
+                  child: TextFormField(
+                    initialValue: user.country,
+                    decoration: const InputDecoration(
+                      labelText: 'Country',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
                 ),
-                SizedBox(width: 16),
+                const SizedBox(width: 16),
                 Expanded(
-                  child: InfoField(label: 'Gender', value: 'Male'),
+                  child: TextFormField(
+                    initialValue: user.gender,
+                    decoration: const InputDecoration(
+                      labelText: 'Gender',
+                      border: OutlineInputBorder(),
+                    ),
+                  ),
                 ),
               ],
             ),
-            InfoField(
-                label: 'Address',
-                value: '828 Su Van Hanh, Phuong 13, Quan 10, TP.HCM'),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class InfoField extends StatelessWidget {
-  final String label;
-  final String value;
-
-  const InfoField({super.key, required this.label, required this.value});
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(vertical: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Text(
-            label,
-            style: const TextStyle(color: Colors.grey),
-          ),
-          const SizedBox(height: 5),
-          ElevatedButton(
-            onPressed: () {},
-            style: ElevatedButton.styleFrom(
-              foregroundColor: Colors.black,
-              backgroundColor: Colors.grey[200],
-              padding: const EdgeInsets.all(12.0),
-              shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8.0),
+            const SizedBox(height: 16),
+            TextFormField(
+              initialValue: user.address,
+              decoration: const InputDecoration(
+                labelText: 'Address',
+                border: OutlineInputBorder(),
               ),
             ),
-            child: Align(
-              alignment: Alignment.centerLeft,
-              child: Text(value),
-            ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }
