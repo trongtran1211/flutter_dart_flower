@@ -6,6 +6,7 @@ class User {
   final String? gender;
   final String? address;
   final String password;
+  final String? image;
 
   User({
     this.fullName,
@@ -14,6 +15,7 @@ class User {
     this.country,
     this.gender,
     this.address,
+    this.image,
     required this.password,
   });
 }

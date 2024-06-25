@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
 import 'package:health_care/models/User.dart';
+import 'package:health_care/screens/info_screen/edit_profile.dart';
 
 class PersonalInfoScreen extends StatelessWidget {
   const PersonalInfoScreen({super.key});
@@ -17,6 +18,7 @@ class PersonalInfoScreen extends StatelessWidget {
       gender: 'Nam',
       address: '828 Sư Vạn Hạnh, Phường 13, Quận 10, TP.HCM',
       password: '********',
+      image: 'assets/images/profile_image.png',
     );
 
     return Scaffold(
@@ -35,12 +37,12 @@ class PersonalInfoScreen extends StatelessWidget {
           children: <Widget>[
             GestureDetector(
               onTap: () {
-                Navigator.of(context).pushNamed(Mainpage.routeName);
+                Navigator.of(context).pushNamed(EditProfileScreen.routeName);
               },
               child: const CircleAvatar(
                 radius: 50,
                 backgroundImage: AssetImage(
-                    'assets/profile_image.png'), // Thêm ảnh asset hoặc ảnh từ mạng
+                    'assets/images/profile_image.png'), // Thêm ảnh asset hoặc ảnh từ mạng
               ),
             ),
             const SizedBox(height: 16),

@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
 
+import 'package:health_care/screens/info_screen/edit_profile.dart'; // Import the EditProfileScreen
+
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
   static String routeName = "/setting";
@@ -19,15 +21,14 @@ class _SettingScreenState extends State<SettingScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Setting and Information"),
-        leading: IconButton(
-          icon: const Icon(Icons.arrow_back),
-          onPressed: () {
-            Navigator.of(context).pushNamed(Mainpage.routeName);
-          },
-        ),
-        backgroundColor: Colors.white
-      ),
+          title: const Text("Setting and Information"),
+          leading: IconButton(
+            icon: const Icon(Icons.arrow_back),
+            onPressed: () {
+              Navigator.of(context).pushNamed(Mainpage.routeName);
+            },
+          ),
+          backgroundColor: Colors.white),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
@@ -124,7 +125,9 @@ class _SettingScreenState extends State<SettingScreen> {
       trailing: trailing ?? const Icon(Icons.arrow_forward_ios),
       onTap: () {
         // Handle on tap if needed
-        if (title == 'Notifications') {
+        if (title == 'Edit profile information') {
+          Navigator.of(context).pushNamed(EditProfileScreen.routeName);
+        } else if (title == 'Notifications') {
           setState(() {
             notificationsOn = !notificationsOn;
           });

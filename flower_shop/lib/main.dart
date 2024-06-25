@@ -9,12 +9,14 @@ void main() {
   runApp(
     MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_) => CartProvider()), // Thay thế bằng lớp Provider của bạn
+        ChangeNotifierProvider(
+            create: (_) =>
+                CartProvider()), // Thay thế bằng lớp Provider của bạn
         // Các provider khác nếu cần thiết
       ],
       child: MainApp(),
     ),
-    );
+  );
 }
 
 class MainApp extends StatelessWidget {
@@ -28,7 +30,5 @@ class MainApp extends StatelessWidget {
       routes: routes,
       theme: AppTheme.lightTheme(context),
     );
-
-
   }
 }
