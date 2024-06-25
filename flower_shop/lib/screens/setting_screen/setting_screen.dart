@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
+import 'package:health_care/screens/setting_screen/components/Privacy_policy_screen.dart';
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
@@ -93,7 +94,8 @@ class _SettingScreenState extends State<SettingScreen> {
                         buildListTile(
                             context, Icons.contact_mail, 'Contact us'),
                         buildListTile(
-                            context, Icons.privacy_tip, 'Privacy policy'),
+                          
+                            context, Icons.privacy_tip, 'Privacy policy', destination: PrivacyPolicyScreen(),),
                       ],
                     ),
                   ],
@@ -117,7 +119,7 @@ class _SettingScreenState extends State<SettingScreen> {
   }
 
   ListTile buildListTile(BuildContext context, IconData icon, String title,
-      {Widget? trailing}) {
+      {Widget? trailing, Widget? destination}) {
     return ListTile(
       leading: Icon(icon),
       title: Text(title),
@@ -130,7 +132,13 @@ class _SettingScreenState extends State<SettingScreen> {
           });
         }
         // Add similar logic for other options if needed
-      },
+        else if (destination != null) {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => destination),
+        );
+        }
+      }
     );
   }
 }
