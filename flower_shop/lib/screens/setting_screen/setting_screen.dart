@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
+import 'package:health_care/screens/info_screen/edit_profile.dart';
+import 'package:health_care/screens/setting_screen/components/Contact_Us_Screen.dart';
 import 'package:health_care/screens/setting_screen/components/Privacy_policy_screen.dart';
-
-import 'package:health_care/screens/info_screen/edit_profile.dart'; // Import the EditProfileScreen
 
 class SettingScreen extends StatefulWidget {
   const SettingScreen({super.key});
   static String routeName = "/setting";
 
   @override
-  // ignore: library_private_types_in_public_api
   _SettingScreenState createState() => _SettingScreenState();
 }
 
@@ -92,11 +91,14 @@ class _SettingScreenState extends State<SettingScreen> {
                       context,
                       [
                         buildListTile(context, Icons.help, 'Help & Support'),
+                        buildListTile(context, Icons.contact_mail, 'Contact us',
+                            destination: ContactUsScreen()),
                         buildListTile(
-                            context, Icons.contact_mail, 'Contact us'),
-                        buildListTile(
-                          
-                            context, Icons.privacy_tip, 'Privacy policy', destination: PrivacyPolicyScreen(),),
+                          context,
+                          Icons.privacy_tip,
+                          'Privacy policy',
+                          destination: PrivacyPolicyScreen(),
+                        ),
                       ],
                     ),
                   ],
@@ -122,26 +124,25 @@ class _SettingScreenState extends State<SettingScreen> {
   ListTile buildListTile(BuildContext context, IconData icon, String title,
       {Widget? trailing, Widget? destination}) {
     return ListTile(
-      leading: Icon(icon),
-      title: Text(title),
-      trailing: trailing ?? const Icon(Icons.arrow_forward_ios),
-      onTap: () {
-        // Handle on tap if needed
-        if (title == 'Edit profile information') {
-          Navigator.of(context).pushNamed(EditProfileScreen.routeName);
-        } else if (title == 'Notifications') {
-          setState(() {
-            notificationsOn = !notificationsOn;
-          });
-        }
-        // Add similar logic for other options if needed
-        else if (destination != null) {
-        Navigator.push(
-          context,
-          MaterialPageRoute(builder: (context) => destination),
-        );
-        }
-      }
-    );
+        leading: Icon(icon),
+        title: Text(title),
+        trailing: trailing ?? const Icon(Icons.arrow_forward_ios),
+        onTap: () {
+          // Handle on tap if needed
+          if (title == 'Edit profile information') {
+            Navigator.of(context).pushNamed(EditProfileScreen.routeName);
+          } else if (title == 'Notifications') {
+            setState(() {
+              notificationsOn = !notificationsOn;
+            });
+          }
+          // Add similar logic for other options if needed
+          else if (destination != null) {
+            Navigator.push(
+              context,
+              MaterialPageRoute(builder: (context) => destination),
+            );
+          }
+        });
   }
 }
