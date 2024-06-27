@@ -9,11 +9,13 @@ import 'package:health_care/screens/forgotpass_screen/forgotpass_screen.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'package:health_care/screens/info_screen/edit_profile.dart';
 import 'package:health_care/screens/info_screen/info_screen.dart';
+import 'package:health_care/screens/setting_screen/components/Help_Center_Screen.dart';
 import 'package:health_care/screens/setting_screen/setting_screen.dart';
 import 'package:health_care/screens/signin_screen/signin_screen.dart';
 import 'package:health_care/screens/signup_screen/signup_screen.dart';
 import 'package:health_care/screens/splash_screen/splash_screen.dart';
 import 'package:health_care/screens/setting_screen/components/Contact_Us_Screen.dart';
+import 'package:health_care/screens/setting_screen/components/Help_Center_Screen.dart';
 
 final Map<String, WidgetBuilder> routes = {
   SplashScreen.routeName: (context) => const SplashScreen(),
@@ -29,4 +31,5 @@ final Map<String, WidgetBuilder> routes = {
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   ContactUsScreen.routeName: (context) => const ContactUsScreen(),
+  HelpCenterScreen.routeName: (context) => const HelpCenterScreen(),
 };

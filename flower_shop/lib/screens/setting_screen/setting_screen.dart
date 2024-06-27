@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
-import 'package:health_care/screens/info_screen/edit_profile.dart';
 import 'package:health_care/screens/setting_screen/components/Contact_Us_Screen.dart';
+import 'package:health_care/screens/setting_screen/components/Help_Center_Screen.dart';
+import 'package:health_care/screens/info_screen/edit_profile.dart';
 import 'package:health_care/screens/setting_screen/components/Privacy_policy_screen.dart';
 
 class SettingScreen extends StatefulWidget {
@@ -90,9 +91,10 @@ class _SettingScreenState extends State<SettingScreen> {
                     buildSettingsGroup(
                       context,
                       [
-                        buildListTile(context, Icons.help, 'Help & Support'),
+                        buildListTile(context, Icons.help, 'Help & Support',
+                            destination: HelpCenterScreen()), // Updated line
                         buildListTile(context, Icons.contact_mail, 'Contact us',
-                            destination: ContactUsScreen()),
+                            destination: ContactUsScreen()), // Updated line
                         buildListTile(
                           context,
                           Icons.privacy_tip,
