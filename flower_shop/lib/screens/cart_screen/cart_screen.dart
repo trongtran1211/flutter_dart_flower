@@ -4,6 +4,7 @@ import 'package:health_care/mainpage.dart';
 import 'package:health_care/models/CartItem.dart';
 import 'package:health_care/screens/cart_screen/cart_item_widget.dart';
 import 'package:health_care/screens/cart_screen/cart_provider.dart';
+import 'package:health_care/screens/checkout/checkout.dart';
 import 'package:provider/provider.dart';
 
 
@@ -90,7 +91,7 @@ class _CartScreenState extends State<CartScreen> {
                         actions: [
                           TextButton(
                             onPressed: () {
-                              Navigator.of(context).pop();
+                              Navigator.of(context).pushNamed(Checkout.screenroute);
                             },
                             child: const Text('Đóng'),
                           ),
