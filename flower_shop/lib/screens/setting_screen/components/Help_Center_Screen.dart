@@ -16,27 +16,49 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
   final List<Map<String, String>> _faqs = [
     {
       'question': 'Xóa lịch sử mua hàng như thế nào?',
-      'answer': 'Bạn không thể xóa lịch sử mua hàng.'
+      'answer': '• Bạn không thể xóa lịch sử mua hàng.'
     },
     {
       'question':
           'Tôi có thể thay đổi số lượng/phân loại sản phẩm sau khi đã đặt hàng không?',
       'answer':
-          'Không. Bạn không thể thay đổi số lượng/phân loại sản phẩm sau khi đã đặt hàng thành công. '
-              'Vui lòng kiểm tra kỹ số lượng/phân loại sản phẩm quyết định đặt trước khi bấm thanh toán'
+          '• Không. Bạn không thể thay đổi số lượng/phân loại sản phẩm sau khi đã đặt hàng thành công.\n'
+              '• Vui lòng kiểm tra kỹ số lượng/phân loại sản phẩm quyết định đặt trước khi bấm thanh toán.'
     },
     {
       'question': 'Cách thay đổi thông tin Tài khoản ngân hàng liên kết?',
-      'answer': 'Tài khoản ngân hàng liên kết với Số dư TK cũng chính là Tài khoản ngân hàng bạn đã thực hiện liên kết với tài khoản. '
-          'Bạn có thể thực hiện thay đổi thông tin Tài khoản ngân hàng tại mục Số dư TK trên ứng dụng. '
-          'Trong trường hợp gặp vấn đề liên quan đến yêu cầu thanh toán tiền ghi nhận từ Số dư TK, bạn có thể liên hệ Nhân viên CSKH để được hỗ trợ.'
+      'answer': '• Tài khoản ngân hàng liên kết với Số dư TK cũng chính là Tài khoản ngân hàng bạn đã thực hiện liên kết với tài khoản.\n'
+          '• Bạn có thể thực hiện thay đổi thông tin Tài khoản ngân hàng tại mục Số dư TK trên ứng dụng.\n'
+          '• Trong trường hợp gặp vấn đề liên quan đến yêu cầu thanh toán tiền ghi nhận từ Số dư TK, bạn có thể liên hệ Nhân viên CSKH để được hỗ trợ.'
     },
     {
       'question': "Cần làm gì nếu gặp lỗi khi sử dụng Ứng dụng?",
       'answer':
-          'Nếu bạn gặp phải các trục trặc kỹ thuật (ví dụ: hiển thị trang trắng/không thể hiển thị trang, không thể xử lý giao dịch, không thể thêm sản phẩm vào Giỏ hàng, ...) khi sử dụng Ứng dụng, vui lòng khởi động lại hệ thống hoặc cập nhật phiên bản mới nhất.'
+          '• Nếu bạn gặp phải các trục trặc kỹ thuật (ví dụ: hiển thị trang trắng/không thể hiển thị trang, không thể xử lý giao dịch, không thể thêm sản phẩm vào Giỏ hàng, ...)\n'
+              '• Khi sử dụng Ứng dụng, vui lòng khởi động lại hệ thống hoặc cập nhật phiên bản mới nhất.'
     },
-    // Add more questions and answers here as needed
+    {
+      'question': "Nền tảng hoặc thiết bị nào được hỗ trợ?",
+      'answer':
+          '• Hỗ Trợ Thiết Kế hiện có thể truy cập qua trình duyệt web (chẳng hạn như Chrome) trên Máy tính để bàn/Mac hoặc Máy tính bảng.'
+    },
+    {
+      'question':
+          "Tôi có cần tải xuống bất kỳ phần mềm hoặc ứng dụng nào không?",
+      'answer':
+          '• Không. Hỗ Trợ Thiết Kế có thể được sử dụng trực tiếp trên trình duyệt web của máy tính.\n'
+              '• Bạn không cần tải xuống bất kỳ phần mềm, ứng dụng hoặc trình cắm bổ sung nào để sử dụng tính năng này.'
+    },
+    {
+      'question': "Làm cách nào để khôi phục mật khẩu của tài khoản?",
+      'answer':
+          '• ·Vui lòng chuyển đến trang khôi phục tài khoản và nhập địa chỉ đăng nhập để đặt lại mật khẩu.'
+    },
+    {
+      'question': "Tôi có thể dùng bao nhiêu tài khoản?",
+      'answer':
+          '• Mỗi người dùng chỉ có thể có một tài khoản tại một thời điểm bất kỳ. Bạn không được phép có tài khoản trùng lặp.'
+    },
   ];
 
   late List<Map<String, String>> _filteredFaqs;
@@ -118,13 +140,6 @@ class _HelpCenterScreenState extends State<HelpCenterScreen> {
                   );
                 },
               ),
-            ),
-            const SizedBox(height: 20),
-            ElevatedButton(
-              onPressed: () {
-                Navigator.of(context).pushNamed(SettingScreen.routeName);
-              },
-              child: const Text('Back to the setting'),
             ),
           ],
         ),
