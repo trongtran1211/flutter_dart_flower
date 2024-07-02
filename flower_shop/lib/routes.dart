@@ -9,6 +9,7 @@ import 'package:health_care/screens/forgotpass_screen/forgotpass_screen.dart';
 import 'package:health_care/screens/home_screen/home_screen.dart';
 import 'package:health_care/screens/info_screen/edit_profile.dart';
 import 'package:health_care/screens/info_screen/info_screen.dart';
+import 'package:health_care/screens/myorder_screen/myorder_screen.dart';
 import 'package:health_care/screens/setting_screen/components/Help_Center_Screen.dart';
 import 'package:health_care/screens/setting_screen/setting_screen.dart';
 import 'package:health_care/screens/signin_screen/signin_screen.dart';
@@ -32,4 +33,5 @@ final Map<String, WidgetBuilder> routes = {
   ForgotPasswordScreen.routeName: (context) => const ForgotPasswordScreen(),
   ContactUsScreen.routeName: (context) => const ContactUsScreen(),
   HelpCenterScreen.routeName: (context) => const HelpCenterScreen(),
+  MyOrderScreen.routeName:(context) => const MyOrderScreen(),
 };

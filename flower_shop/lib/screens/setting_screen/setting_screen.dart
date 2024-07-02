@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:health_care/mainpage.dart';
+import 'package:health_care/screens/myorder_screen/myorder_screen.dart';
 import 'package:health_care/screens/setting_screen/components/Contact_Us_Screen.dart';
 import 'package:health_care/screens/setting_screen/components/Help_Center_Screen.dart';
 import 'package:health_care/screens/info_screen/edit_profile.dart';
@@ -64,6 +65,8 @@ class _SettingScreenState extends State<SettingScreen> {
                       [
                         buildListTile(
                             context, Icons.person, 'Edit profile information'),
+                        buildListTile(
+                            context, Icons.person, 'My Order', destination: MyOrderScreen()),
                         buildListTile(
                             context, Icons.notifications, 'Notifications',
                             trailing: Text(
