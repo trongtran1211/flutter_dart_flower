@@ -83,7 +83,21 @@ class _CartScreenState extends State<CartScreen> {
                 ElevatedButton(
                   onPressed: () {
                     // Thêm logic thanh toán tại đây
-                     Navigator.of(context).pushNamed(Checkout.screenroute);
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('Thanh Toán'),
+                        content: const Text('Cảm ơn bạn đã mua hàng!'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.of(context).pushNamed(Checkout.screenroute);
+                            },
+                            child: const Text('Đóng'),
+                          ),
+                        ],
+                      ),
+                    );
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: black,
