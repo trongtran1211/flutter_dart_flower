@@ -82,22 +82,7 @@ class _CartScreenState extends State<CartScreen> {
                 const SizedBox(height: 20),
                 ElevatedButton(
                   onPressed: () {
-                    // Thêm logic thanh toán tại đây
-                    showDialog(
-                      context: context,
-                      builder: (context) => AlertDialog(
-                        title: const Text('Thanh Toán'),
-                        content: const Text('Cảm ơn bạn đã mua hàng!'),
-                        actions: [
-                          TextButton(
-                            onPressed: () {
-                              Navigator.of(context).pushNamed(Checkout.screenroute);
-                            },
-                            child: const Text('Đóng'),
-                          ),
-                        ],
-                      ),
-                    );
+                    Navigator.of(context).pushNamed(Checkout.screenroute);
                   },
                   style: ElevatedButton.styleFrom(
                     backgroundColor: black,
